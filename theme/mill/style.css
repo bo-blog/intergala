@@ -1,0 +1,258 @@
+/* css reset by Tantek Celik */
+:link,:visited { text-decoration:none }
+ul,ol { list-style:none }
+h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input
+{ margin:0; padding:0; font-weight:normal }
+a img,:link img,:visited img { border:none }
+address { font-style:normal }
+
+
+/* main style */
+body {
+background: #F3F3F3;
+font-family: Helvetica, "Microsoft Yahei", "Microsoft JhengHei", STHei, "Meiryo UI";
+height:100%;
+}
+a {
+color: #CCC;
+}
+#overallContainer {
+background: #F3F3F3;
+height: 100%;
+}
+header {
+width: 94%;
+margin: auto;
+padding: 30px 0 30px 0;
+}
+header h1, h1 a {
+font-family: Helvetica, "Microsoft Yahei", "Microsoft JhengHei", STHei, "Meiryo UI";
+color: #008C23;
+font-size: 26px;
+margin-left: 4px;
+display: inline;
+}
+.iconLogo {
+font-size: 24px;
+color: #008C23;
+margin-left: 20px;
+}
+header h1:hover, header h1 a:hover, .iconLogo:hover {
+color: #333;
+}
+nav {
+float: right;
+margin-top: 10px;
+padding-right: 40px;
+}
+nav li {
+float: left;
+margin-left: 24px;
+}
+nav li a {
+color: #999;
+}
+nav li a:hover {
+color: #008C23;
+}
+nav .activeNav a {
+color: #008C23;
+}
+#mainArea {
+clear: both;
+text-align: center;
+}
+
+article {
+width: 88%;
+text-align: left;
+margin: 0 auto 58px auto;
+padding: 20px;
+background: #FFF;
+}
+.decoArticle {
+display: block;
+width: 200px;
+height: 2px;
+background: #008C23;
+position: absolute;
+margin: -20px auto auto -18px;
+} 
+article h2, article h2 a {
+color: #000;
+font-size: 22px;
+}
+article h2 a:hover {
+color: #356A00;
+}
+article h3 {
+color: #717171;
+font-size: 14px;
+margin: 5px 0 16px 0;
+}
+article h3 a {
+color: #717171;
+}
+.details {
+line-height: 190%;
+color: #464646;
+font-size: 16px;
+}
+.details a {
+color: #356A00;
+border-bottom: 1px solid #ccc;
+}
+.details a:hover {
+color: #000;
+}
+.details p {
+margin-bottom: 16px;
+}
+.articleShare {
+float: right;
+font-size: 18px;
+}
+.articleShare a {
+color: #CCC;
+}
+.articleShare a:hover {
+color: #464646;
+}
+.readMore a {
+display: block;
+font-size: 15px;
+border: 0;
+}
+.tagsRow {
+display: block;
+text-align: right;
+}
+.oneTag {
+margin-right: 8px;
+}
+.commentArea {
+width: 88%;
+text-align: left;
+margin: -20px auto 10px auto;
+padding: 0 20px 30px 20px;
+background: #FFF;
+}
+.articleShare {
+font-size: 23px;
+}
+
+
+
+footer {
+clear: both;
+margin: 0 auto 0 auto;
+width: 90%;
+padding: 20px;
+height: 120px;
+min-height: 120px;
+text-align: left;
+color: #AAA;
+font-size: 15px;
+}
+footer .fol {
+margin-right: 18px;
+font-size: 18px;
+}
+footer .lnk {
+margin-right: 28px;
+}
+footer a {
+color: #505050;
+}
+#copyright {
+width: 100%;
+text-align: center;
+padding-top: 24px;
+}
+#copyright a, #copyright {
+color: #ccc;
+font-size: 12px;
+font-family: Helvetica, Arial;
+}
+
+
+
+/* Article details */
+.details img {
+max-width: 80%;
+cursor: pointer;
+}
+.details h1, .details h2, .details h3, .details h4, .details h5, .details h6 {
+font-family: "Lucida Sans Unicode", Helvetica, "Microsoft Yahei", "Microsoft JhengHei", STHei, "Meiryo UI";
+color: #464646;
+text-shadow: none;
+font-weight: bold;
+}
+.details h1 {
+font-size: 18px;
+}
+.details h2 {
+font-size: 16px;
+}
+.details .videoFrame {
+width: 640px;
+height: 360px;
+max-width: 90%;
+}
+.details .xiamiLoader {
+max-width: 90%;
+}
+.details .geoLocator {
+font-size: 16px;
+color: #356A00;
+}
+.details ul {
+list-style: inside circle;
+}
+.details blockquote {
+width: 95%;
+background: #EFEFEF;
+border-left: 5px solid #A8FF51;
+padding: 2px 2px 2px 8px;
+font-family: "Lucida Sans Unicode", Helvetica, "Times New Roman", SimHei, Hei, "Microsoft Yahei", "Microsoft JhengHei", STHei, "Meiryo UI";
+}
+.details code {
+font-family: Consolas, Monaco, "Microsoft Yahei", "Microsoft JhengHei", "Meiryo UI"; 
+}
+.details pre {
+width: 95%;
+border-left: 5px solid #CCC;
+padding: 2px 2px 2px 8px;
+}
+.details hr {
+border: 0;
+border-bottom: 1px solid #CCC;
+margin: 23px auto 23px auto;
+}
+
+
+
+/* responsive */
+#menuDown {
+display: none;
+}
+@media only screen and (max-width: 450px) {
+header {
+width: 100%;
+}
+nav {
+display: block;
+float: left;
+text-align: center;
+width: 100%;
+margin: 20px auto 20px auto;
+}
+
+.commentArea {
+margin: 0 -10px auto auto;
+}
+.decoArticle {
+display: none;
+}
+}

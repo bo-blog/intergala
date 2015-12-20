@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>因特旮旯</title>
+<link>http://note.bobshen.com</link>
+<description>Yet another bW blog.</description>
+<image><url>http://note.bobshen.com/conf/profile.png</url><title>Bob</title><link>http://note.bobshen.com</link></image>
+<item>
+<title>源起</title>
+<link>http://note.bobshen.com/read.php/preface/</link>
+<author>Bob</author><pubDate>2015-12-12T22:00:00+08:00</pubDate>
+<guid isPermalLink="true">http://note.bobshen.com/read.php/preface/</guid>
+<comment>http://note.bobshen.com/read.php/preface/#comment-preface</comment>
+<description><![CDATA[<p><img alt="" src="http://bobshen.qiniudn.com/storage/c7b6e890?imageView2/2/w/800" /></p><p>因特旮旯，Internet Gala。或者说，因特网的某个旮旯。（旮旯者，亦是“九”和“日”的随意组合。）怎么样？这个名字还不错吧。</p><p>本网志力求质量，偏技术。宗旨是不灌水，不纯发贴图，不无病呻吟。有此想法，正是因为另一个以本名开设的网志情况恰恰相反。此外，这里也是将 <a href="https://github.com/bo-blog/bw">bW项目</a> 静态化的一个尝试，故也有炫技成分。</p><p>望持续更新，不可半途而废。以此自勉。</p><p><em>Photo taken in Hawaii, Feb. 2015</em></p>]]></description>
+</item>
+</channel></rss>
