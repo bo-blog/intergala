@@ -6,11 +6,19 @@
 <description>Yet another bW blog.</description>
 <image><url>http://note.bobshen.com/conf/profile.png</url><title>Bob</title><link>http://note.bobshen.com</link></image>
 <item>
+<title>当回忆里有你</title>
+<link>http://note.bobshen.com/read.php/when-memory-stays/</link>
+<author>Bob</author><pubDate>2015-12-31T23:45:07+08:00</pubDate>
+<guid isPermalLink="true">http://note.bobshen.com/read.php/when-memory-stays/</guid>
+<comment>http://note.bobshen.com/read.php/when-memory-stays/#comment-when-memory-stays</comment>
+<description><![CDATA[<p><img src="http://bobshen.qiniudn.com/storage/09c2c168?imageView2/2/w/800" alt="" /></p><p>2004 年，作为一个对计算机和互联网有着难解兴趣的毛头小伙，我用业余时间做了一个博客程序，并将它发布到网上与大家共享。当时没想到，这个项目会陪伴我两年、五年、十一年……</p><p>白羊座的人一向是风风火火，没个定性。坚持做一件事十多年，bo-blog 真的成为了我一个难以割舍的情结，也成了为生活中不可忽略的一部分。不记得有多少次想到放弃，甚至一度停止更新五年，但最终还是把它重新拾起。</p><p>原本，我只是把 bo-blog 当作一个和一群志同道合的“爱折腾族”一起“玩”的平台。有问题，解决之；有需求，满足之——这可能真的是旁人难以理解的所谓“技术宅”吧。但后来，我发现它对一些人、对我自己，都是有别样的意义的。</p>]]></description>
+</item>
+<item>
 <title>源起</title>
 <link>http://note.bobshen.com/read.php/preface/</link>
 <author>Bob</author><pubDate>2015-12-12T22:00:00+08:00</pubDate>
 <guid isPermalLink="true">http://note.bobshen.com/read.php/preface/</guid>
 <comment>http://note.bobshen.com/read.php/preface/#comment-preface</comment>
-<description><![CDATA[<p><img alt="" src="http://bobshen.qiniudn.com/storage/c7b6e890?imageView2/2/w/800" /></p><p>因特旮旯，Internet Gala。或者说，因特网的某个旮旯。（旮旯者，亦是“九”和“日”的随意组合。）怎么样？这个名字还不错吧。</p><p>本网志力求质量，偏技术。宗旨是不灌水，不纯发贴图，不无病呻吟。有此想法，正是因为另一个以本名开设的网志情况恰恰相反。此外，这里也是将 <a href="https://github.com/bo-blog/bw">bW项目</a> 静态化的一个尝试，故也有炫技成分。</p><p>望持续更新，不可半途而废。以此自勉。</p><p><em>Photo taken in Hawaii, Feb. 2015</em></p>]]></description>
+<description><![CDATA[<p><img src="http://bobshen.qiniudn.com/storage/c7b6e890?imageView2/2/w/800" alt="" /></p><p>因特旮旯，Internet Gala。或者说，因特网的某个旮旯。（旮旯者，亦是“九”和“日”的随意组合。）怎么样？这个名字还不错吧。</p><p>本网志力求质量，偏技术。宗旨是不灌水，不纯发贴图，不无病呻吟。有此想法，正是因为另一个以本名开设的网志情况恰恰相反。此外，这里也是将 <a href="https://github.com/bo-blog/bw">bW项目</a> 静态化的一个尝试，故也有炫技成分。</p><p>希望能做到持续更新，不半途而废。以此自勉。</p><p><em>Photo taken in Hawaii, Feb. 2015</em></p>]]></description>
 </item>
 </channel></rss>
