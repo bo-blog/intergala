@@ -240,21 +240,21 @@ margin: 23px auto 23px auto;
 display: none;
 }
 @media only screen and (max-width: 450px) {
+body {
+width: 99%;
+}
 header {
-width: 100%;
 }
 nav {
 display: block;
 float: left;
 text-align: center;
-width: 100%;
 margin: 20px auto 20px auto;
 }
 article {
 width: 90%;
 }
 .commentArea {
-width: 100%;
 margin: 0 -10px auto auto;
 }
 .decoArticle {
