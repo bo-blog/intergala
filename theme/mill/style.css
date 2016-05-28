@@ -182,7 +182,7 @@ font-family: Helvetica, Arial;
 
 /* Article details */
 .details img {
-max-width: 80%;
+max-width: 90%;
 cursor: pointer;
 }
 .details h1, .details h2, .details h3, .details h4, .details h5, .details h6 {
