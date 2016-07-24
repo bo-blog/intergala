@@ -182,7 +182,7 @@ font-family: Helvetica, Arial;
 
 /* Article details */
 .details img {
-max-width: 90%;
+max-width: 80%;
 cursor: pointer;
 }
 .details h1, .details h2, .details h3, .details h4, .details h5, .details h6 {
@@ -232,6 +232,16 @@ border: 0;
 border-bottom: 1px solid #CCC;
 margin: 23px auto 23px auto;
 }
+.RImg {
+float: right;
+max-width: 400px!important;
+margin-left: 20px;
+}
+.LImg {
+float: left;
+max-width: 400px!important;
+margin-right: 20px;
+}
 
 
 
@@ -259,5 +269,9 @@ margin: 0 -10px auto auto;
 }
 .decoArticle {
 display: none;
+}
+.RImg, .LImg {
+float: none;
+max-width: 90%!important;
 }
 }
