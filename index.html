@@ -83,6 +83,7 @@
 
  
 
+<span class="readMore details" id="nFAll"><a href="http://note.bobshen.com/archive.html"><span style="font-size: 18px;">&raquo; All Posts</span></a></span>
 </div>
 <!-- end ajax section -->
 
@@ -96,14 +97,15 @@ Connect<br/>
 <br/>
 Links<br/>
 <span class="lnk"><a href="https://github.com/bo-blog/bw" target="_blank">bW on GitHub</a></span>
-<script>$("<link>").attr({rel:"stylesheet", type:"text/css", href: "http://note.bobshen.com/extension/google_code_prettify/assets/prettify.css"}).appendTo("head");
-$("<sc"+"ript>"+"</sc"+"ript>").attr({src: "http://note.bobshen.com/extension/google_code_prettify/assets/prettify.js"}).appendTo("head");
-prettyPrint();</script>
+
 <div id="copyright"><a href="http://bw.bo-blog.com/" target="_blank">Powered by bW + Mill</a></div>
 
 </footer>
 
 <script type="text/javascript">
+if ('' != '') {
+	document.getElementById('nFAll').innerHTML='';
+}
 var nav=document.getElementById ('nav-index');
 if (nav.classList) {
   nav.classList.add('activeNav');
