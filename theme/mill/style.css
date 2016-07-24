@@ -234,12 +234,12 @@ margin: 23px auto 23px auto;
 }
 .RImg {
 float: right;
-max-width: 400px!important;
+max-width: 40%!important;
 margin-left: 20px;
 }
 .LImg {
 float: left;
-max-width: 400px!important;
+max-width: 40%!important;
 margin-right: 20px;
 }
 
@@ -249,7 +249,7 @@ margin-right: 20px;
 #menuDown {
 display: none;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 400px) {
 body {
 width: 99%;
 }
