@@ -123,7 +123,7 @@ function lightboxLoaderDestroy () {
 	$("#UI-lightbox").unbind();
 }
 
-/*function changeNav ()
+function changeNav ()
 {
 	var aPos=$(window).scrollTop();
 	var bPos=$("#mainArea").position().top;
@@ -136,5 +136,5 @@ function lightboxLoaderDestroy () {
 	}
 	t=setTimeout ("changeNav()", 200);
 }
-*/
+
 
