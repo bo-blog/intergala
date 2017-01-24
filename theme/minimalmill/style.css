@@ -11,15 +11,15 @@ address { font-style:normal }
   font-family: 'iconfont';
   src: url('//at.alicdn.com/t/font_1463671252_3203113.eot'); /* IE9*/
   src: url('//at.alicdn.com/t/font_1463671252_3203113.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1463671252_3203113.woff') format('woff'), /* chrome¡¢firefox */
-  url('//at.alicdn.com/t/font_1463671252_3203113.ttf') format('truetype'), /* chrome¡¢firefox¡¢opera¡¢Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1463671252_3203113.woff') format('woff'), /* chromeï¿½ï¿½firefox */
+  url('//at.alicdn.com/t/font_1463671252_3203113.ttf') format('truetype'), /* chromeï¿½ï¿½firefoxï¿½ï¿½operaï¿½ï¿½Safari, Android, iOS 4.2+*/
   url('//at.alicdn.com/t/font_1463671252_3203113.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 i {font-family:"iconfont"; font-style: normal;}
 
 body {
 background: #fff;
-font-family: Helvetica, "Microsoft Yahei", Arial, "Microsoft JhengHei", STHei, "Meiryo UI";
+font-family: 'HanHei SC', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Microsoft Yahei', 'Microsoft JhengHei', 'Arial', sans-serif;
 color: #747484;
 }
 a, .color-high {
