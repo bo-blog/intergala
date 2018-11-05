@@ -264,17 +264,23 @@ margin-right: 20px;
 #menuDown {
 display: none;
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 900px) {
 body {
 width: 99%;
 }
-header {
+header h1, header .iconLogo {
+display: none;
 }
 nav {
 display: block;
-float: left;
-text-align: center;
-margin: 20px auto 20px auto;
+float: none;
+text-align: left;
+margin: 0;
+}
+nav li {
+margin: 0;
+margin-top: -20px;
+padding: 10px;
 }
 article {
 width: 90%;
