@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>说说苹果的EarPods | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/elf.min.css">
+    <link crossorigin="anonymous" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-N8GAcUjeZwBphCJXwZX++LNEFcUiHWR7d9QM2cLV5PzodNKLThczC8xKRt1lNz5U" src="https://lib.baomitu.com/reqwest/2.0.5/reqwest.min.js"></script>
+    
+    <link crossorigin="anonymous" integrity="sha384-//f24QOH7LRcdGyo/NwN+l9yR/vegHuCBYlrXF138+eoV+Dn3DdA2xJh2O4zCrhV" href="https://lib.baomitu.com/highlight.js/9.15.10/styles/vs2015.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-T+w74+ZcvFfVqhBgPlvEYQ8xtCT/GIKWZa6UREApz0kndqJSZMXfJ6urjwKHJsVi" src="https://lib.baomitu.com/highlight.js/9.15.8/highlight.min.js"></script>    
+    
+</head>
+
+<body class="elf">
+    <div id="enableDarkMode"></div>
+    <!-- Load Dark Mode or Light Mode -->
+    <style>
+        #enableDarkMode {
+            height: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            #enableDarkMode {
+                height: 1px;
+            }
+        }
+    </style>
+    <script>
+        function loadStyle(url){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function enabledDarkMode () {
+            let today = new Date ();
+            let darkmode = localStorage.getItem('darkmode');
+            if (localStorage.hasOwnProperty('darkmode')) {
+                let dm = localStorage.getItem('darkmode').split('|');             
+                if (today.getTime() - dm[1] < 24*3600) {
+                    if (dm[0] == 1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } 
+                else {
+                    localStorage.removeItem('darkmode');
+                }
+            }
+            let userChoseDark = window.getComputedStyle(document.getElementById("enableDarkMode")).getPropertyValue('height') == '1px' ? true : false;
+            if (userChoseDark) {
+                return true;
+            }            
+            let currentHour = today.getHours ();
+            if (currentHour > 6 && currentHour < 18) {
+                return false;
+            }
+            return true;
+        }
+
+        function loadScheme (scheme) {
+            let today = new Date ();
+            let settime = today.getTime();
+            if (scheme == 'dark') {
+                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "1|"+settime);
+            }
+            else {
+                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "0|"+settime);
+            }
+        }
+
+        if (enabledDarkMode()) {
+            loadScheme ("dark");
+        }
+        else {
+            loadScheme ("light");
+        }
+    </script>
+
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+        <div class='article'><h3 class='title'><a href='/post/apple-earpods.html'>说说苹果的EarPods</a></h3><div class='time'>Oct 12 2012</div><div class='content'><p>鉴于iPhone 4标配的小白音质之水，佩戴之不适，本来我对EarPods是不感冒的。可最近森海MX470坏了一声道（我这耗耳机的人啊，每年坏一副森海），于是索性装装13，换这款网上评价还不错的EarPods听听。</p>
+<p>今天下午到货，一路听回家，忍不住说两句。</p>
+<p>虽然说对于音质的评价纯属个人感受，但有一点是肯定的：反观iPhone4的小白，EarPods的表现的确提升了N倍，以致于两者完全没有比较的必要。一个是地摊货的水准，另一个则可以满足不挑剔的流行音乐爱好者需求。</p>
+<p>用EarPods来对比MX470应该还是靠谱的，毕竟两者的价位差不多。解析度上，EarPods和MX470不相上下，但苹果的人声发虚，穿透力有限。EarPods的低频量足但质次，音量调大时低频量过大且有廉价感，不似MX470那样有“弹性”。除却这两点，EarPods的表现基本令我满意。用来听流行非常合适，搭配iPhone放歌的白开水风格有对症下药之益。</p>
+<p>下面开始吐槽。<a href="#" id="more" name="more"></a></p>
+<p>可能是本人耳朵长得不好，佩戴iPhone 4小白时，戴上不到两秒钟就会向外滑，脑袋稍微一动，小白就会立刻掉落。而前前后后买过数副森海，都戴得很舒服。</p>
+<p>据报道，“苹果EarPods耳塞的设计采集了超过600个人耳模型并且进行了3D建模，保证了苹果EarPods耳塞可以适应绝大多数用户的佩戴习惯。”可惜我不是那600分之一。EarPods照样一戴上就松动，当然比“小白”好很多，但仍然经不起步行中的晃动。一旦佩戴不紧，就会造成低频的大幅度流失，外界噪音涌入，导致音质急剧下滑。于是我只能悲剧地一路听一路推耳机，听两句推一下，听音体验非常痛苦。</p>
+<p>当然，不少评测文章说，EarPods佩戴非常舒服，怎么晃动脑袋都不会脱落。对此我只能捏耳自叹了。</p>
+<p>在没有解决佩戴舒适性的问题之前，我是很难对EarPods有太高的评价了。想入手的诸君，建议到苹果店试戴后再决定。</p></div></div>
+
+        <div id="find-all"><a href="/archive.html">All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :social="Social" :navs="Nav" :external="External" :stats="Stat" :status="status">
+        </header-zone>
+        <keep-live>
+            <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage"
+                :articles="bodydata" ref="mainCanvas">
+            </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>        
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>       
+        var senBasicData;
+        var currentMode = 'post';
+        function embedContentData() {
+            senBasicData.bodydata = {"fName":"apple-earpods","artTitle":"说说苹果的EarPods","cTime":"Oct 12 2012","aTime":"Jun 9 2019","artContent":"<p>鉴于iPhone 4标配的小白音质之水，佩戴之不适，本来我对EarPods是不感冒的。可最近森海MX470坏了一声道（我这耗耳机的人啊，每年坏一副森海），于是索性装装13，换这款网上评价还不错的EarPods听听。<\/p>\n<p>今天下午到货，一路听回家，忍不住说两句。<\/p>\n<p>虽然说对于音质的评价纯属个人感受，但有一点是肯定的：反观iPhone4的小白，EarPods的表现的确提升了N倍，以致于两者完全没有比较的必要。一个是地摊货的水准，另一个则可以满足不挑剔的流行音乐爱好者需求。<\/p>\n<p>用EarPods来对比MX470应该还是靠谱的，毕竟两者的价位差不多。解析度上，EarPods和MX470不相上下，但苹果的人声发虚，穿透力有限。EarPods的低频量足但质次，音量调大时低频量过大且有廉价感，不似MX470那样有“弹性”。除却这两点，EarPods的表现基本令我满意。用来听流行非常合适，搭配iPhone放歌的白开水风格有对症下药之益。<\/p>\n<p>下面开始吐槽。<a href=\"#\" id=\"more\" name=\"more\"><\/a><\/p>\n<p>可能是本人耳朵长得不好，佩戴iPhone 4小白时，戴上不到两秒钟就会向外滑，脑袋稍微一动，小白就会立刻掉落。而前前后后买过数副森海，都戴得很舒服。<\/p>\n<p>据报道，“苹果EarPods耳塞的设计采集了超过600个人耳模型并且进行了3D建模，保证了苹果EarPods耳塞可以适应绝大多数用户的佩戴习惯。”可惜我不是那600分之一。EarPods照样一戴上就松动，当然比“小白”好很多，但仍然经不起步行中的晃动。一旦佩戴不紧，就会造成低频的大幅度流失，外界噪音涌入，导致音质急剧下滑。于是我只能悲剧地一路听一路推耳机，听两句推一下，听音体验非常痛苦。<\/p>\n<p>当然，不少评测文章说，EarPods佩戴非常舒服，怎么晃动脑袋都不会脱落。对此我只能捏耳自叹了。<\/p>\n<p>在没有解决佩戴舒适性的问题之前，我是很难对EarPods有太高的评价了。想入手的诸君，建议到苹果店试戴后再决定。<\/p>","artSummary":"<p>鉴于iPhone 4标配的小白音质之水，佩戴之不适，本来我对EarPods是不感冒的。可最近森海MX470坏了一声道（我这耗耳机的人啊，每年坏一副森海），于是索性装装13，换这款网上评价还不错的EarPods听听。<\/p>\n<p>今天下午到货，一路听回家，忍不住说两句。<\/p>\n<p>虽然说对于音质的评价纯属个人感受，但有一点是肯定的：反观iPhone4的小白，EarPods的表现的确提升了N倍，以致于两者完全没有比较的必要。一个是地摊货的水准，另一个则可以满足不挑剔的流行音乐爱好者需求。<\/p>\n<p>用EarPods来对比MX470应该还是靠谱的，毕竟两者的价位差不多。解析度上，EarPods和MX470不相上下，但苹果的人声发虚，穿透力有限。EarPods的低频量足但质次，音量调大时低频量过大且有廉价感，不似MX470那样有“弹性”。除却这两点，EarPods的表现基本令我满意。用来听流行非常合适，搭配iPhone放歌的白开水风格有对症下药之益。<\/p>\n<p>下面开始吐槽。<\/p>","artTags":["不负责评测"],"aSet":[],"cTimeRaw":"1350023661"};
+            renderNow();
+        }
+    </script>
+     
+    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+</body>
+</html>

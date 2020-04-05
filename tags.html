@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>Tags | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/elf.min.css">
+    <link crossorigin="anonymous" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-N8GAcUjeZwBphCJXwZX++LNEFcUiHWR7d9QM2cLV5PzodNKLThczC8xKRt1lNz5U" src="https://lib.baomitu.com/reqwest/2.0.5/reqwest.min.js"></script>
+    <!-- 
+    <link crossorigin="anonymous" integrity="sha384-//f24QOH7LRcdGyo/NwN+l9yR/vegHuCBYlrXF138+eoV+Dn3DdA2xJh2O4zCrhV" href="https://lib.baomitu.com/highlight.js/9.15.10/styles/vs2015.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-T+w74+ZcvFfVqhBgPlvEYQ8xtCT/GIKWZa6UREApz0kndqJSZMXfJ6urjwKHJsVi" src="https://lib.baomitu.com/highlight.js/9.15.8/highlight.min.js"></script>    
+     -->
+</head>
+
+<body class="elf">
+    <div id="enableDarkMode"></div>
+    <!-- Load Dark Mode or Light Mode -->
+    <style>
+        #enableDarkMode {
+            height: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            #enableDarkMode {
+                height: 1px;
+            }
+        }
+    </style>
+    <script>
+        function loadStyle(url){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function enabledDarkMode () {
+            let today = new Date ();
+            let darkmode = localStorage.getItem('darkmode');
+            if (localStorage.hasOwnProperty('darkmode')) {
+                let dm = localStorage.getItem('darkmode').split('|');             
+                if (today.getTime() - dm[1] < 24*3600) {
+                    if (dm[0] == 1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } 
+                else {
+                    localStorage.removeItem('darkmode');
+                }
+            }
+            let userChoseDark = window.getComputedStyle(document.getElementById("enableDarkMode")).getPropertyValue('height') == '1px' ? true : false;
+            if (userChoseDark) {
+                return true;
+            }            
+            let currentHour = today.getHours ();
+            if (currentHour > 6 && currentHour < 18) {
+                return false;
+            }
+            return true;
+        }
+
+        function loadScheme (scheme) {
+            let today = new Date ();
+            let settime = today.getTime();
+            if (scheme == 'dark') {
+                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "1|"+settime);
+            }
+            else {
+                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "0|"+settime);
+            }
+        }
+
+        if (enabledDarkMode()) {
+            loadScheme ("dark");
+        }
+        else {
+            loadScheme ("light");
+        }
+    </script>
+
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+        <div class='list-header'>2016</div>
+<div class='list-body'><h3 class='title'><a href='/post/when-memory-stays.html'>当回忆里有你</a></h3><div class='time'>2015-12-31</div></div>
+<div class='list-header'>B&O</div>
+<div class='list-body'><h3 class='title'><a href='/post/bo-e8.html'>B＆O E8使用体验</a></h3><div class='time'>2019-08-10</div></div>
+<div class='list-header'>Filco</div>
+<div class='list-body'><h3 class='title'><a href='/post/kindle-voyage.html'>Kindle Voyage小评</a></h3><div class='time'>2016-07-23</div></div>
+<div class='list-header'>Kindle</div>
+<div class='list-body'><h3 class='title'><a href='/post/kindle-voyage.html'>Kindle Voyage小评</a></h3><div class='time'>2016-07-23</div></div>
+<div class='list-header'>Libratone</div>
+<div class='list-body'><h3 class='title'><a href='/post/libratone-zipp-mini.html'>Libratone Zipp Mini，让耳朵沉醉的热水瓶</a></h3><div class='time'>2016-07-30</div></div>
+<div class='list-header'>Nuc</div>
+<div class='list-body'><h3 class='title'><a href='/post/nuc-catalina.html'>NUC8i5全新安装macOS 10.15 Catalina笔记</a></h3><div class='time'>2019-10-12</div></div>
+<div class='list-header'>SenNote</div>
+<div class='list-body'><h3 class='title'><a href='/post/why-new.html'>为什么要挖新的坑？</a></h3><div class='time'>2019-06-15</div></div>
+<div class='list-header'>iPhone</div>
+<div class='list-body'><h3 class='title'><a href='/post/disable-wechat-dark-mode.html'>科学地禁用微信的iOS深色模式</a></h3><div class='time'>2020-04-05</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/iphone-7-plus-yi-zhou-ge-ren-shi-yong-ti-yan.html'>iPhone 7 Plus 一周个人使用体验</a></h3><div class='time'>2016-10-19</div></div>
+<div class='list-header'>macOS</div>
+<div class='list-body'><h3 class='title'><a href='/post/nuc-catalina.html'>NUC8i5全新安装macOS 10.15 Catalina笔记</a></h3><div class='time'>2019-10-12</div></div>
+<div class='list-header'>不负责评测</div>
+<div class='list-body'><h3 class='title'><a href='/post/bo-e8.html'>B＆O E8使用体验</a></h3><div class='time'>2019-08-10</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/iphone-7-plus-yi-zhou-ge-ren-shi-yong-ti-yan.html'>iPhone 7 Plus 一周个人使用体验</a></h3><div class='time'>2016-10-19</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/libratone-zipp-mini.html'>Libratone Zipp Mini，让耳朵沉醉的热水瓶</a></h3><div class='time'>2016-07-30</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/kindle-voyage.html'>Kindle Voyage小评</a></h3><div class='time'>2016-07-23</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/apple-earpods.html'>说说苹果的EarPods</a></h3><div class='time'>2012-10-12</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/spark-3.html'>Spark III 简评</a></h3><div class='time'>2012-02-25</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/higashino-keigo.html'>东野圭吾个人书单</a></h3><div class='time'>2011-07-11</div></div>
+<div class='list-header'>微信</div>
+<div class='list-body'><h3 class='title'><a href='/post/disable-wechat-dark-mode.html'>科学地禁用微信的iOS深色模式</a></h3><div class='time'>2020-04-05</div></div>
+<div class='list-header'>技术宅</div>
+<div class='list-body'><h3 class='title'><a href='/post/disable-wechat-dark-mode.html'>科学地禁用微信的iOS深色模式</a></h3><div class='time'>2020-04-05</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/why-new.html'>为什么要挖新的坑？</a></h3><div class='time'>2019-06-15</div></div>
+<div class='list-header'>旅行</div>
+<div class='list-body'><h3 class='title'><a href='/post/japan-photo-collection-1.html'>日影集 1</a></h3><div class='time'>2019-11-09</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/chu-jian-ao-zhou-lan-2.html'>初见澳洲蓝（2）</a></h3><div class='time'>2018-11-19</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/chu-jian-ao-zhou-lan-1.html'>初见澳洲蓝（1）</a></h3><div class='time'>2018-11-18</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/qu-ni-de-dong-ying.html'>去，你的东瀛</a></h3><div class='time'>2018-10-05</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/hong-kong-2015.html'>港岛初印象</a></h3><div class='time'>2015-10-30</div></div>
+<div class='list-header'>日本</div>
+<div class='list-body'><h3 class='title'><a href='/post/japan-photo-collection-1.html'>日影集 1</a></h3><div class='time'>2019-11-09</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/qu-ni-de-dong-ying.html'>去，你的东瀛</a></h3><div class='time'>2018-10-05</div></div>
+<div class='list-header'>有所思</div>
+<div class='list-body'><h3 class='title'><a href='/post/free-and-non-instrumental.html'>一篇推文</a></h3><div class='time'>2019-06-19</div></div>
+<div class='list-header'>朋友圈</div>
+<div class='list-body'><h3 class='title'><a href='/post/no-wechat-moments.html'>逃离朋友圈</a></h3><div class='time'>2016-05-28</div></div>
+<div class='list-header'>澳大利亚</div>
+<div class='list-body'><h3 class='title'><a href='/post/chu-jian-ao-zhou-lan-2.html'>初见澳洲蓝（2）</a></h3><div class='time'>2018-11-19</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/chu-jian-ao-zhou-lan-1.html'>初见澳洲蓝（1）</a></h3><div class='time'>2018-11-18</div></div>
+<div class='list-header'>百度</div>
+<div class='list-body'><h3 class='title'><a href='/post/no-baidu.html'>当我们厌恶百度时，我们在厌恶什么</a></h3><div class='time'>2016-05-03</div></div>
+<div class='list-header'>网事</div>
+<div class='list-body'><h3 class='title'><a href='/post/why-new.html'>为什么要挖新的坑？</a></h3><div class='time'>2019-06-15</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/when-memory-stays.html'>当回忆里有你</a></h3><div class='time'>2015-12-31</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/preface.html'>源起</a></h3><div class='time'>2015-12-12</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/meipai.html'>说说美拍</a></h3><div class='time'>2014-05-18</div></div>
+<div class='list-body'><h3 class='title'><a href='/post/net-experience-2000.html'>上网，过去时</a></h3><div class='time'>2007-11-10</div></div>
+<div class='list-header'>香港</div>
+<div class='list-body'><h3 class='title'><a href='/post/hong-kong-2015.html'>港岛初印象</a></h3><div class='time'>2015-10-30</div></div>
+
+        <div id="find-all"><a href="/archive.html">All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :social="Social" :navs="Nav" :external="External" :stats="Stat" :status="status">
+        </header-zone>
+        <keep-live>
+            <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage"
+                :articles="bodydata" ref="mainCanvas">
+            </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>        
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>       
+        var senBasicData;
+        var currentMode = 'tags';
+        function embedContentData() {
+            senBasicData.bodydata = __ArticleData__;
+            renderNow();
+        }
+    </script>
+     
+    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+</body>
+</html>

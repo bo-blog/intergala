@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>一篇推文 | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/elf.min.css">
+    <link crossorigin="anonymous" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-N8GAcUjeZwBphCJXwZX++LNEFcUiHWR7d9QM2cLV5PzodNKLThczC8xKRt1lNz5U" src="https://lib.baomitu.com/reqwest/2.0.5/reqwest.min.js"></script>
+    
+    <link crossorigin="anonymous" integrity="sha384-//f24QOH7LRcdGyo/NwN+l9yR/vegHuCBYlrXF138+eoV+Dn3DdA2xJh2O4zCrhV" href="https://lib.baomitu.com/highlight.js/9.15.10/styles/vs2015.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-T+w74+ZcvFfVqhBgPlvEYQ8xtCT/GIKWZa6UREApz0kndqJSZMXfJ6urjwKHJsVi" src="https://lib.baomitu.com/highlight.js/9.15.8/highlight.min.js"></script>    
+    
+</head>
+
+<body class="elf">
+    <div id="enableDarkMode"></div>
+    <!-- Load Dark Mode or Light Mode -->
+    <style>
+        #enableDarkMode {
+            height: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            #enableDarkMode {
+                height: 1px;
+            }
+        }
+    </style>
+    <script>
+        function loadStyle(url){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function enabledDarkMode () {
+            let today = new Date ();
+            let darkmode = localStorage.getItem('darkmode');
+            if (localStorage.hasOwnProperty('darkmode')) {
+                let dm = localStorage.getItem('darkmode').split('|');             
+                if (today.getTime() - dm[1] < 24*3600) {
+                    if (dm[0] == 1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } 
+                else {
+                    localStorage.removeItem('darkmode');
+                }
+            }
+            let userChoseDark = window.getComputedStyle(document.getElementById("enableDarkMode")).getPropertyValue('height') == '1px' ? true : false;
+            if (userChoseDark) {
+                return true;
+            }            
+            let currentHour = today.getHours ();
+            if (currentHour > 6 && currentHour < 18) {
+                return false;
+            }
+            return true;
+        }
+
+        function loadScheme (scheme) {
+            let today = new Date ();
+            let settime = today.getTime();
+            if (scheme == 'dark') {
+                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "1|"+settime);
+            }
+            else {
+                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "0|"+settime);
+            }
+        }
+
+        if (enabledDarkMode()) {
+            loadScheme ("dark");
+        }
+        else {
+            loadScheme ("light");
+        }
+    </script>
+
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+        <div class='article'><h3 class='title'><a href='/post/free-and-non-instrumental.html'>一篇推文</a></h3><div class='time'>Jun 19 2019</div><div class='content'><p><img src="https://s2.ax1x.com/2019/11/06/Micjcn.jpg" alt="" /></p>
+<h4>本文是基于本人关于曲老师在2019届毕业典礼上的讲话稿的个人感想的推特帖扩写而来。<a href="https://mp.weixin.qq.com/s/u7VOSHZEfZxG-VYTag6CCQ">讲话原文</a></h4>
+<p>昨天，从曲院长微博读到这篇讲话，内心泪流不止。</p>
+<p>个人不才，毕业后浮生于世，至今早已与那句知名的“非官方校训”—— 自由而无用 ——渐行渐远。彼时，虽然有人提过这句非官方校训，但没有众人皆知。我想这句话真正成为复旦代名词，是在陈果教授的讲课视频走红之后。不过，这并不代表这句话所主张的精神在当年不那么适用。恰恰相反，这句话的走红，正是因为它概括了在母校特有的氛围下，学生身上形成的一份特质，一种执着。</p>
+<p>对于这份执着，我个人心存感激。这些年来，每每在生活的某些节点上，自由而无用这句话背后所代表的精神，促使我做出了更追随内心的召唤而非顺应更主流价值观的选择。有些选择虽痛苦，然而我依然感到庆幸。</p>
+<p>它也让我保留了一丝穿过迷雾追求真实的动力，虽然这几年来，因为对各大网络平台的环境感到失望，而成为了一个不怎么说话的看客，但我知道，自己仍在心底保有一丝微薄的坚持。</p>
+<p>人虽无用，岂可自废于心。</p>
+<h4>题图：2019年春摄于镰仓</h4></div></div>
+
+        <div id="find-all"><a href="/archive.html">All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :social="Social" :navs="Nav" :external="External" :stats="Stat" :status="status">
+        </header-zone>
+        <keep-live>
+            <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage"
+                :articles="bodydata" ref="mainCanvas">
+            </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>        
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>       
+        var senBasicData;
+        var currentMode = 'post';
+        function embedContentData() {
+            senBasicData.bodydata = {"fName":"free-and-non-instrumental","artTitle":"一篇推文","cTime":"Jun 19 2019","aTime":"Nov 6 2019","artContent":"<p><img src=\"https:\/\/s2.ax1x.com\/2019\/11\/06\/Micjcn.jpg\" alt=\"\" \/><\/p>\n<h4>本文是基于本人关于曲老师在2019届毕业典礼上的讲话稿的个人感想的推特帖扩写而来。<a href=\"https:\/\/mp.weixin.qq.com\/s\/u7VOSHZEfZxG-VYTag6CCQ\">讲话原文<\/a><\/h4>\n<p>昨天，从曲院长微博读到这篇讲话，内心泪流不止。<\/p>\n<p>个人不才，毕业后浮生于世，至今早已与那句知名的“非官方校训”—— 自由而无用 ——渐行渐远。彼时，虽然有人提过这句非官方校训，但没有众人皆知。我想这句话真正成为复旦代名词，是在陈果教授的讲课视频走红之后。不过，这并不代表这句话所主张的精神在当年不那么适用。恰恰相反，这句话的走红，正是因为它概括了在母校特有的氛围下，学生身上形成的一份特质，一种执着。<\/p>\n<p>对于这份执着，我个人心存感激。这些年来，每每在生活的某些节点上，自由而无用这句话背后所代表的精神，促使我做出了更追随内心的召唤而非顺应更主流价值观的选择。有些选择虽痛苦，然而我依然感到庆幸。<\/p>\n<p>它也让我保留了一丝穿过迷雾追求真实的动力，虽然这几年来，因为对各大网络平台的环境感到失望，而成为了一个不怎么说话的看客，但我知道，自己仍在心底保有一丝微薄的坚持。<\/p>\n<p>人虽无用，岂可自废于心。<\/p>\n<h4>题图：2019年春摄于镰仓<\/h4>","artSummary":"<p><img src=\"https:\/\/s2.ax1x.com\/2019\/11\/06\/Micjcn.jpg\" alt=\"\" \/><\/p>\n<h4>本文是基于本人关于曲老师在2019届毕业典礼上的讲话稿的个人感想的推特帖扩写而来。<a href=\"https:\/\/mp.weixin.qq.com\/s\/u7VOSHZEfZxG-VYTag6CCQ\">讲话原文<\/a><\/h4>\n<p>昨天，从曲院长微博读到这篇讲话，内心泪流不止。<\/p>\n<p>个人不才，毕业后浮生于世，至今早已与那句知名的“非官方校训”—— 自由而无用 ——渐行渐远。彼时，虽然有人提过这句非官方校训，但没有众人皆知。我想这句话真正成为复旦代名词，是在陈果教授的讲课视频走红之后。不过，这并不代表这句话所主张的精神在当年不那么适用。恰恰相反，这句话的走红，正是因为它概括了在母校特有的氛围下，学生身上形成的一份特质，一种执着。<\/p>\n<p>对于这份执着，我个人心存感激。这些年来，每每在生活的某些节点上，自由而无用这句话背后所代表的精神，促使我做出了更追随内心的召唤而非顺应更主流价值观的选择。有些选择虽痛苦，然而我依然感到庆幸。<\/p>\n<p>它也让我保留了一丝穿过迷雾追求真实的动力，虽然这几年来，因为对各大网络平台的环境感到失望，而成为了一个不怎么说话的看客，但我知道，自己仍在心底保有一丝微薄的坚持。<\/p>\n<p>人虽无用，岂可自废于心。<\/p>\n<h4>题图：2019年春摄于镰仓<\/h4>","artTags":["有所思"],"aSet":[],"cTimeRaw":"1560956400"};
+            renderNow();
+        }
+    </script>
+     
+    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+</body>
+</html>

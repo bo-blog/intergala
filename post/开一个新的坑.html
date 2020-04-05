@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>开一个新的坑 | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://note.bobshen.com/resource/elf.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://note.bobshen.com/css/main.css?v=dd85eccc848055dcff75b492d62ea108">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.8/styles/dracula.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+</head>
+<body class="elf">
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+    <div class='article'><h3 class='title'><a href='https://note.bobshen.com/post/开一个新的坑.html'>开一个新的坑</a></h3><div class='time'>Jun 1 2019, 8:46pm</div><div class='content'><p>似乎每次bo-blog发展一段时间，都会有个推翻重来的过程。不过想明白了也就不奇怪了，因为技术的更新是永无止境的，每隔一段时间，就会学习到新的知识，有了新的认知和思考，然后就会对之前的程序不满意，甚至越改越不顺手。</p>
+<p>时代在发展，作为一个传统的PHP程序，bo的架构又落伍了，或者说，不太符合我现在的思考。所以，我决定开一个新的坑，而且这一次从构思阶段就把过程记录下来。这样可以理清思路，这些文字也可以作为演示网站的物料。</p>
+<p>这个新的项目，就定名为SenNote吧，中文名可以叫“闪记”。</p></div></div>
+
+        <div id="find-all"><a href="https://note.bobshen.com/archive.html">View All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :navs="Nav" :status="status">
+        </header-zone>
+        <keep-live>
+        <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage" :articles="bodydata">
+        </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>
+        //Vue.config.devtools = true;
+        var headerHeight = 60;
+        var senBasicData;
+        var senBodyData;
+        var currentPageNum = 1;
+        var mountedApp = false;
+        var currentMode = 'post';
+
+        function loadBasicData () {
+            reqwest ({
+                url: 'https://note.bobshen.com/data/basic.json?v=dd85eccc848055dcff75b492d62ea108', 
+                type: 'json',
+                method: 'get',
+                success: function (resp) {
+                    senBasicData = resp;
+                    var extraData = {
+                        isShrinkedHeader: false,
+                        isLoading: true,
+                        isMobileMenu: false,
+                        CurrentPage: "index"
+                    };        
+                    senBasicData.status = extraData;
+                    if (currentMode != 'post') {
+                        loadContentData();
+                    }
+                    else {
+                        embedContentData();
+                    }
+                },
+                error: function () {
+                    alert ("Data error...");
+                }
+            });
+        }
+
+        function loadContentData () {
+            reqwest ({
+                url: 'https://note.bobshen.com/data/' + dataSource(), 
+                type: 'json',
+                method: 'get',
+                success: function (resp) {
+                    senBasicData.bodydata = resp;
+                    renderNow ();
+                },
+                error: function () {
+                    if (!mountedApp) {
+                        alert ("Data error...");
+                    }
+                }
+            });
+        }
+        
+        function embedContentData () {
+            senBasicData.bodydata = {"fName":"开一个新的坑","artTitle":"开一个新的坑","cTime":"Jun 1 2019, 8:46pm","aTime":"Nov 30 1979, 12:00am","artContent":"<p>似乎每次bo-blog发展一段时间，都会有个推翻重来的过程。不过想明白了也就不奇怪了，因为技术的更新是永无止境的，每隔一段时间，就会学习到新的知识，有了新的认知和思考，然后就会对之前的程序不满意，甚至越改越不顺手。<\/p>\n<p>时代在发展，作为一个传统的PHP程序，bo的架构又落伍了，或者说，不太符合我现在的思考。所以，我决定开一个新的坑，而且这一次从构思阶段就把过程记录下来。这样可以理清思路，这些文字也可以作为演示网站的物料。<\/p>\n<p>这个新的项目，就定名为SenNote吧，中文名可以叫“闪记”。<\/p>","artSummary":"<p>似乎每次bo-blog发展一段时间，都会有个推翻重来的过程。不过想明白了也就不奇怪了，因为技术的更新是永无止境的，每隔一段时间，就会学习到新的知识，有了新的认知和思考，然后就会对之前的程序不满意，甚至越改越不顺手。<\/p>\n<p>时代在发展，作为一个传统的PHP程序，bo的架构又落伍了，或者说，不太符合我现在的思考。所以，我决定开一个新的坑，而且这一次从构思阶段就把过程记录下来。这样可以理清思路，这些文字也可以作为演示网站的物料。<\/p>\n<p>这个新的项目，就定名为SenNote吧，中文名可以叫“闪记”。<\/p>","artTags":["SenNote2","About"],"aSet":[]};
+            renderNow ();
+        }
+        
+        function dataSource () {
+            switch (currentMode) {
+                case 'main':
+                    if (location.hash.indexOf ('#page/') == 0) {
+                        currentPageNum = Math.floor(location.hash.substring(6));
+                    }
+                    var dataSrc = 'page-' + currentPageNum + '.json?v=dd85eccc848055dcff75b492d62ea108';
+                    break;
+                case 'tags':
+                    var dataSrc = 'tags.json?v=dd85eccc848055dcff75b492d62ea108';
+                    senBasicData.status.CurrentPage = 'tags';
+                    break;
+                case 'archive':
+                    var dataSrc = 'archive.json?v=dd85eccc848055dcff75b492d62ea108';
+                    senBasicData.status.CurrentPage = 'archive';
+                    break;
+                default:
+                    var dataSrc = 'page-1.json?v=dd85eccc848055dcff75b492d62ea108';
+            }
+            return dataSrc;
+        }
+
+        function turnPage (pn) {
+            if (currentMode == 'main') {
+                senBasicData.status.isLoading = true;
+                reqwest ({
+                    url: 'https://note.bobshen.com/data/page-' + pn + '.json?v=dd85eccc848055dcff75b492d62ea108', 
+                    type: 'json',
+                    method: 'get',
+                    success: function (resp) {
+                        senBasicData.bodydata = resp;
+                        location.hash = "#page/" + pn;
+                        senBasicData.status.isLoading = false;
+                        document.body.scrollIntoView({behavior: 'smooth'});
+                    }
+                });
+            }
+        }
+
+        function renderNow () {
+            var tempData = {
+                HeaderZone: "<header id=\"sn-header\" class=\"row\" :class=\"{'sn-shrinked-header': status.isShrinkedHeader}\" v-if=\"!status.isLoading\">     <div id=\"sn-logo\" class=\"width-fixed\"><h1 @click=\"goHome\">{{ Site.SiteName }}</h1></div>         <nav class=\"width-12\" :class=\"{'sn-menu': status.isMobileMenu}\">       <ul>         <li v-for=\"nav in Navs\" :key=\"nav.id\" :class=\"isActivePage(nav.id)\">           <a :href=\"nav.url\" :target=\"nav.target\">{{ nav.text }}</a>         </li>       </ul>      </nav>     <div id=\"sn-btn-menu\" @click=\"toggleMenu\">         <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>     </div>   </header>", 
+                MainZone: "<main :class=\"{'sn-main': status.isMobileMenu}\" v-if=\"!status.isLoading\">     <article v-for=\"article in articles\" :key=\"article.fName\">       <div class=\"sn-time\">{{ article.cTime }}</div>       <div><h2 class=\"sn-title\"><a :href=\"Site.BaseURL+'/post/'+article.fName+'.html'\">{{ article.artTitle }}</a></h2></div>       <div class=\"sn-body\" v-html=\"highlight(article.artSummary)\">       </div>       <div v-if=\"article.artSummary != article.artContent\"><button class=\"small sn-btn-more\"><a :href=\"Site.BaseURL+'/post/'+article.fName+'.html#more'\">Read More</a></button></div>       <div class=\"sn-tags\">         <span class=\"sn-tag\" v-for=\"tag in article.artTags\"><a :href=\"Site.BaseURL+'/tags.html#'+tag\">#{{ tag }}</a></span>       </div>     </article>     <div id=\"page-switcher\">       <page-bar inline-template :site=\"Site\" :status=\"status\" :total-page=\"TotalPage\">         <ul class=\"sn-pages\">           <li v-if=\"CurrentPageNum != 1\" @click=\"goPage(-1)\"><i class=\"fa fa-chevron-left\"></i></li><li v-for=\"(item, index) in pages\" :key=\"index\" @click=\"goPage(item)\"><span :class=\"{'sn-page-actived': item == CurrentPageNum}\">{{ item }}</span></li><li v-if=\"CurrentPageNum != TotalPage\" @click=\"goPage(0)\"><i class=\"fa fa-chevron-right\"></i></li>         </ul>       </page-bar>     </div>   </main>",
+                FooterZone: "<footer v-if=\"!status.isLoading\">     <div id=\"sn-copyright\" v-html=\"Site.CopyRight\"></div>   </footer>",
+                PostZone: "<main :class=\"{'sn-main': status.isMobileMenu}\" v-if=\"!status.isLoading\">     <article>       <div class=\"sn-time\">{{ articles.cTime }}</div>       <div><h2 class=\"sn-title\">{{ articles.artTitle }}</h2></div>       <div class=\"sn-body\" v-html=\"highlight(articles.artContent)\">       </div>             <div class=\"sn-tags\">         <span class=\"sn-tag\" v-for=\"tag in articles.artTags\"><a :href=\"Site.BaseURL+'/tags.html#'+tag\">#{{ tag }}</a></span>       </div>     </article>   </main>",
+                TagsZone: "<main :class=\"{'sn-main': status.isMobileMenu}\" v-if=\"!status.isLoading\">     <article v-for=\"entry in Entries\" :key=\"entry.eID\">       <div><h4 class=\"sn-entry\">{{ entry.eID }}</h4></div>       <div class=\"sn-body\">         <ul class=\"sn-list\">           <li v-for=\"article in entry.eArticles\">             <span class=\"sn-item-title\"><a :href=\"Site.BaseURL+'/post/'+article.fName+'.html'\">{{ article.artTitle }}</a></span>             <span class=\"sn-item-extra\">({{ article.cTime }})</span>           </li>         </ul>       </div>     </article>   </main>",
+                ArchiveZone: "<main :class=\"{'sn-main': status.isMobileMenu}\" v-if=\"!status.isLoading\">     <article v-for=\"entry in Entries\" :key=\"entry.eID\" class=\"sn-archive\">       <div class=\"sn-archive-wrap\" :class=\"{'sn-archive-wrap-shrinked': status.isMobileMenu}\">         <div class=\"sn-archive-time\"><h4 class=\"sn-entry\">{{ entry.eID | ymformat }}</h4></div>         <div class=\"sn-archive-timeline\" v-if=\"!status.isMobileMenu\"><span class=\"sn-archive-dot\"></span></div>         <div class=\"sn-body sn-archive-body\">           <ul class=\"sn-list\">             <li v-for=\"article in entry.eArticles\">               <span class=\"sn-item-title\"><a :href=\"Site.BaseURL+'/post/'+article.fName+'.html'\">{{ article.artTitle }}</a></span>             </li>           </ul>         </div>       </div>     </article>   </main>"
+            };
+
+            
+Vue.component ('header-zone', {
+    props: ['Site', 'Navs', 'status'],
+    methods: {
+        isActivePage: function(navid) {
+            return this.status.CurrentPage == navid ? 'sn-active-page' : '';
+        },
+        toggleMenu: function() {
+            this.status.isMobileMenu = this.status.isMobileMenu ? false : true;
+        },
+        goHome: function() {
+            window.location.href = this.Site.BaseURL;
+        }
+    },
+    template: tempData.HeaderZone
+});
+
+Vue.component ('main-zone', {
+    props: ['Site', 'status', 'articles', 'TotalPage'],
+    template: tempData.MainZone
+});
+Vue.component ('page-bar', {
+    props: ['Site', 'status', 'TotalPage'],
+    data: function () {
+        return {
+            CurrentPageNum: currentPageNum
+        };
+    },
+    methods: {
+        goPage: function (pn) {
+            if (pn == -1) {
+                this.CurrentPageNum--;
+                currentPageNum--;
+                turnPage (currentPageNum);
+            } else if (pn == 0) {
+                this.CurrentPageNum++;
+                currentPageNum++;
+                turnPage (currentPageNum);
+            } else if (pn != '...' && pn != currentPageNum) {
+                this.CurrentPageNum = pn;
+                currentPageNum = pn;
+                turnPage (currentPageNum);                
+            }     
+        }
+    },
+    computed: {
+        pages() {
+            let c = this.CurrentPageNum;
+            let t = this.TotalPage;
+            let prg = 2; //ie 5 pages in the row
+            
+            
+            let rs = [1];
+            if (t < prg * 2 + 2) {
+                for (let m = 2; m <= t; m++) {
+                    rs.push (m);
+                }
+                return rs;
+            }
+
+            if (c < prg + 1) {
+                prg = prg + (prg - c + 1);
+            }
+
+            let mid = [];
+            let more1 = false;
+            let more2 = false;
+            for (let m = 2; m < t; m++) {
+                if (m > c+prg) {
+                    more2 = true;
+                    break;    
+                }
+                if (m < c-prg) {
+                    more1 = true;
+                    continue;
+                }
+                else {
+                    mid.push (m);
+                }
+            }
+            if  (more1) {
+                rs.push ('...');
+            }
+            rs = rs.concat (mid);
+            if (more2) {
+                rs.push ('...');
+            }
+            if (t > 1) {
+                rs.push (t);
+            }
+            return rs;
+        }
+    }
+});
+
+Vue.component ('footer-zone', {
+    props: ['Site', 'status'],
+    template: tempData.FooterZone
+});
+
+Vue.component ('post-zone', {
+    props: ['Site', 'status', 'articles'],
+    template: tempData.PostZone
+});
+
+Vue.component ('tags-zone', {
+    props: ['Site', 'status'],
+    data: function () {
+        var senBodyData = senBasicData.bodydata;
+        var hs = location.hash;
+        if (hs != '' || hs != '#') {
+            hs = decodeURI(hs.substring (1));
+            for (var i in senBodyData) {
+                if (senBodyData[i].eID == hs) {
+                    var bSenData = [];
+                    bSenData[0] = senBodyData[i];
+                    return {Entries: bSenData};
+                }
+            }
+        }
+        return {Entries: senBodyData};
+    },
+    template: tempData.TagsZone
+});
+
+Vue.component ('archive-zone', {
+    props: ['Site', 'status'],
+    data: function () {
+        var senBodyData = senBasicData.bodydata;
+        var hs = location.hash;
+        if (hs != '' || hs != '#') {
+            hs = decodeURI(hs.substring (1));
+            for (var i in senBodyData) {
+                if (senBodyData[i].eID == hs) {
+                    var bSenData = [];
+                    bSenData[0] = senBodyData[i];
+                    return {Entries: bSenData};
+                }
+            }
+        }
+        return {Entries: senBodyData};
+    },
+    filters: {
+        ymformat: function (val) {
+            val = val.toString();
+            return val.substring(0,4) + '-' + val.substring(4);
+        }
+    },
+    template: tempData.ArchiveZone
+});
+
+
+            Vue.prototype.highlight= function (val) {
+                    val = val.replace(/<pre><code>([\s\S]+?)<\/code><\/pre>/gm, function(w, code) {
+                        var code2 = code.replace(/&lt;/gm, "<").replace(/&gt;/gm, ">");
+                    
+                        var valHL = hljs.highlightAuto (code2, ['php', 'javascript', 'html', 'sh']);
+                        return "<pre><code>"+valHL.value+"</code></pre>";           
+                    });
+                    val = val.replace(/<pre><code class="language-([0-9A-Za-z]+)">([\s\S]+?)<\/code><\/pre>/gm, function(w, lang, code) {
+                        var code2 = code.replace(/&lt;/gm, "<").replace(/&gt;/gm, ">");
+                    
+                        var valHL = hljs.highlightAuto (code2, [lang]);
+                        return "<pre><code>"+valHL.value+"</code></pre>";           
+                    });
+                return val;
+            };
+
+            var app = new Vue({
+                el: '#main-canvas',
+                data: senBasicData,
+                created: function() {
+                    document.getElementById('main-canvas').style.display = 'block';
+					document.getElementById('body-wrapper').style.display = 'none';
+                    window.addEventListener('scroll', this.autoShrinkHeader);
+                },
+                mounted: function() {
+                    this.$nextTick(function () { 
+                        this.status.isLoading = false;
+                    });
+                    mountedApp = true;
+                },
+                computed: {
+                    currentActiveMode: function () {
+                        return (currentMode + "-zone");    
+                    }
+                },
+                methods: {                
+                    autoShrinkHeader: function() {
+                        let headerScrolled = document.documentElement.scrollTop || document.body.scrollTop;
+                        if (headerScrolled > headerHeight) {
+                            this.status.isShrinkedHeader = true;
+                        } else {
+                            this.status.isShrinkedHeader = false;
+                        }
+                    }                
+                }
+            });
+        }
+    
+        loadBasicData ();
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>港岛初印象 | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/elf.min.css">
+    <link crossorigin="anonymous" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-N8GAcUjeZwBphCJXwZX++LNEFcUiHWR7d9QM2cLV5PzodNKLThczC8xKRt1lNz5U" src="https://lib.baomitu.com/reqwest/2.0.5/reqwest.min.js"></script>
+    
+    <link crossorigin="anonymous" integrity="sha384-//f24QOH7LRcdGyo/NwN+l9yR/vegHuCBYlrXF138+eoV+Dn3DdA2xJh2O4zCrhV" href="https://lib.baomitu.com/highlight.js/9.15.10/styles/vs2015.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-T+w74+ZcvFfVqhBgPlvEYQ8xtCT/GIKWZa6UREApz0kndqJSZMXfJ6urjwKHJsVi" src="https://lib.baomitu.com/highlight.js/9.15.8/highlight.min.js"></script>    
+    
+</head>
+
+<body class="elf">
+    <div id="enableDarkMode"></div>
+    <!-- Load Dark Mode or Light Mode -->
+    <style>
+        #enableDarkMode {
+            height: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            #enableDarkMode {
+                height: 1px;
+            }
+        }
+    </style>
+    <script>
+        function loadStyle(url){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function enabledDarkMode () {
+            let today = new Date ();
+            let darkmode = localStorage.getItem('darkmode');
+            if (localStorage.hasOwnProperty('darkmode')) {
+                let dm = localStorage.getItem('darkmode').split('|');             
+                if (today.getTime() - dm[1] < 24*3600) {
+                    if (dm[0] == 1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } 
+                else {
+                    localStorage.removeItem('darkmode');
+                }
+            }
+            let userChoseDark = window.getComputedStyle(document.getElementById("enableDarkMode")).getPropertyValue('height') == '1px' ? true : false;
+            if (userChoseDark) {
+                return true;
+            }            
+            let currentHour = today.getHours ();
+            if (currentHour > 6 && currentHour < 18) {
+                return false;
+            }
+            return true;
+        }
+
+        function loadScheme (scheme) {
+            let today = new Date ();
+            let settime = today.getTime();
+            if (scheme == 'dark') {
+                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "1|"+settime);
+            }
+            else {
+                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "0|"+settime);
+            }
+        }
+
+        if (enabledDarkMode()) {
+            loadScheme ("dark");
+        }
+        else {
+            loadScheme ("light");
+        }
+    </script>
+
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+        <div class='article'><h3 class='title'><a href='/post/hong-kong-2015.html'>港岛初印象</a></h3><div class='time'>Oct 30 2015</div><div class='content'><p><img src="https://i.loli.net/2018/11/05/5bdff0696e172.jpeg" alt="-Album: 2015年国庆，在某些不和谐之音甚嚣尘上之际，我踏上了这片一直存留于记忆中的紫荆花土地。" />
+2015年国庆，在某些不和谐之音甚嚣尘上之际，我踏上了这片一直存留于记忆中的紫荆花土地。</p>
+<p><img src="https://i.loli.net/2018/11/05/5bdff06c4ac33.jpg" alt="-Album: 因为带着有些不怎么轻松的心情，所以我在港岛的街头边走边思考，也格外留意着新老交汇的场景。曾经的东方之珠，现在就在一个发展的十字路口。也许唯有挥别过去，才可走向未来。" />
+因为带着有些不怎么轻松的心情，所以我在港岛的街头边走边思考，也格外留意着新老交汇的场景。曾经的东方之珠，现在就在一个发展的十字路口。也许唯有挥别过去，才可走向未来。</p>
+<p><img src="https://i.loli.net/2018/11/05/5bdff0da9a470.jpg" alt="-Album: 不管是地铁站，还是商务楼，走来走去的年轻人，一贯的行色匆匆，但和国内的一些大城市的年轻人相比，他们的表情更为茫然。" />
+不管是地铁站，还是商务楼，走来走去的年轻人，一贯的行色匆匆，但和国内的一些大城市的年轻人相比，他们的表情更为茫然。</p>
+<p><img src="https://i.loli.net/2018/11/05/5bdff06e1da28.jpg" alt="-Album: 倒是离岛上的人们，依旧不咸不淡地过着生活，仿佛外界的兴衰都与己无关。" />
+倒是离岛上的人们，依旧不咸不淡地过着生活，仿佛外界的兴衰都与己无关。</p>
+<p><img src="https://i.loli.net/2018/11/05/5bdff06dc93c6.jpg" alt="-Album: 无论发生了什么，那片海依旧风平浪静。这，也是我对这个城市发自心底的希望和祝愿吧。" />
+无论发生了什么，那片海依旧风平浪静。这，也是我对这个城市发自心底的希望和祝愿吧。</p>
+<p><img src="https://i.loli.net/2018/11/05/5bdff06ccdab6.jpg" alt="-Album: " /></p></div></div>
+
+        <div id="find-all"><a href="/archive.html">All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :social="Social" :navs="Nav" :external="External" :stats="Stat" :status="status">
+        </header-zone>
+        <keep-live>
+            <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage"
+                :articles="bodydata" ref="mainCanvas">
+            </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>        
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>       
+        var senBasicData;
+        var currentMode = 'post';
+        function embedContentData() {
+            senBasicData.bodydata = {"fName":"hong-kong-2015","artTitle":"港岛初印象","cTime":"Oct 30 2015","aTime":"Jun 9 2019","artContent":"<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff0696e172.jpeg\" alt=\"-Album: 2015年国庆，在某些不和谐之音甚嚣尘上之际，我踏上了这片一直存留于记忆中的紫荆花土地。\" \/>\n2015年国庆，在某些不和谐之音甚嚣尘上之际，我踏上了这片一直存留于记忆中的紫荆花土地。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06c4ac33.jpg\" alt=\"-Album: 因为带着有些不怎么轻松的心情，所以我在港岛的街头边走边思考，也格外留意着新老交汇的场景。曾经的东方之珠，现在就在一个发展的十字路口。也许唯有挥别过去，才可走向未来。\" \/>\n因为带着有些不怎么轻松的心情，所以我在港岛的街头边走边思考，也格外留意着新老交汇的场景。曾经的东方之珠，现在就在一个发展的十字路口。也许唯有挥别过去，才可走向未来。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff0da9a470.jpg\" alt=\"-Album: 不管是地铁站，还是商务楼，走来走去的年轻人，一贯的行色匆匆，但和国内的一些大城市的年轻人相比，他们的表情更为茫然。\" \/>\n不管是地铁站，还是商务楼，走来走去的年轻人，一贯的行色匆匆，但和国内的一些大城市的年轻人相比，他们的表情更为茫然。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06e1da28.jpg\" alt=\"-Album: 倒是离岛上的人们，依旧不咸不淡地过着生活，仿佛外界的兴衰都与己无关。\" \/>\n倒是离岛上的人们，依旧不咸不淡地过着生活，仿佛外界的兴衰都与己无关。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06dc93c6.jpg\" alt=\"-Album: 无论发生了什么，那片海依旧风平浪静。这，也是我对这个城市发自心底的希望和祝愿吧。\" \/>\n无论发生了什么，那片海依旧风平浪静。这，也是我对这个城市发自心底的希望和祝愿吧。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06ccdab6.jpg\" alt=\"-Album: \" \/><\/p>","artSummary":"<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff0696e172.jpeg\" alt=\"-Album: 2015年国庆，在某些不和谐之音甚嚣尘上之际，我踏上了这片一直存留于记忆中的紫荆花土地。\" \/>\n2015年国庆，在某些不和谐之音甚嚣尘上之际，我踏上了这片一直存留于记忆中的紫荆花土地。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06c4ac33.jpg\" alt=\"-Album: 因为带着有些不怎么轻松的心情，所以我在港岛的街头边走边思考，也格外留意着新老交汇的场景。曾经的东方之珠，现在就在一个发展的十字路口。也许唯有挥别过去，才可走向未来。\" \/>\n因为带着有些不怎么轻松的心情，所以我在港岛的街头边走边思考，也格外留意着新老交汇的场景。曾经的东方之珠，现在就在一个发展的十字路口。也许唯有挥别过去，才可走向未来。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff0da9a470.jpg\" alt=\"-Album: 不管是地铁站，还是商务楼，走来走去的年轻人，一贯的行色匆匆，但和国内的一些大城市的年轻人相比，他们的表情更为茫然。\" \/>\n不管是地铁站，还是商务楼，走来走去的年轻人，一贯的行色匆匆，但和国内的一些大城市的年轻人相比，他们的表情更为茫然。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06e1da28.jpg\" alt=\"-Album: 倒是离岛上的人们，依旧不咸不淡地过着生活，仿佛外界的兴衰都与己无关。\" \/>\n倒是离岛上的人们，依旧不咸不淡地过着生活，仿佛外界的兴衰都与己无关。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06dc93c6.jpg\" alt=\"-Album: 无论发生了什么，那片海依旧风平浪静。这，也是我对这个城市发自心底的希望和祝愿吧。\" \/>\n无论发生了什么，那片海依旧风平浪静。这，也是我对这个城市发自心底的希望和祝愿吧。<\/p>\n<p><img src=\"https:\/\/i.loli.net\/2018\/11\/05\/5bdff06ccdab6.jpg\" alt=\"-Album: \" \/><\/p>","artTags":["香港","旅行"],"aSet":[],"cTimeRaw":"1446192043"};
+            renderNow();
+        }
+    </script>
+     
+    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+</body>
+</html>

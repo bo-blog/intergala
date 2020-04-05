@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>娱乐榜 | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/elf.min.css">
+    <link crossorigin="anonymous" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-N8GAcUjeZwBphCJXwZX++LNEFcUiHWR7d9QM2cLV5PzodNKLThczC8xKRt1lNz5U" src="https://lib.baomitu.com/reqwest/2.0.5/reqwest.min.js"></script>
+    
+    <link crossorigin="anonymous" integrity="sha384-//f24QOH7LRcdGyo/NwN+l9yR/vegHuCBYlrXF138+eoV+Dn3DdA2xJh2O4zCrhV" href="https://lib.baomitu.com/highlight.js/9.15.10/styles/vs2015.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-T+w74+ZcvFfVqhBgPlvEYQ8xtCT/GIKWZa6UREApz0kndqJSZMXfJ6urjwKHJsVi" src="https://lib.baomitu.com/highlight.js/9.15.8/highlight.min.js"></script>    
+    
+</head>
+
+<body class="elf">
+    <div id="enableDarkMode"></div>
+    <!-- Load Dark Mode or Light Mode -->
+    <style>
+        #enableDarkMode {
+            height: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            #enableDarkMode {
+                height: 1px;
+            }
+        }
+    </style>
+    <script>
+        function loadStyle(url){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function enabledDarkMode () {
+            let today = new Date ();
+            let darkmode = localStorage.getItem('darkmode');
+            if (localStorage.hasOwnProperty('darkmode')) {
+                let dm = localStorage.getItem('darkmode').split('|');             
+                if (today.getTime() - dm[1] < 24*3600) {
+                    if (dm[0] == 1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } 
+                else {
+                    localStorage.removeItem('darkmode');
+                }
+            }
+            let userChoseDark = window.getComputedStyle(document.getElementById("enableDarkMode")).getPropertyValue('height') == '1px' ? true : false;
+            if (userChoseDark) {
+                return true;
+            }            
+            let currentHour = today.getHours ();
+            if (currentHour > 6 && currentHour < 18) {
+                return false;
+            }
+            return true;
+        }
+
+        function loadScheme (scheme) {
+            let today = new Date ();
+            let settime = today.getTime();
+            if (scheme == 'dark') {
+                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "1|"+settime);
+            }
+            else {
+                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "0|"+settime);
+            }
+        }
+
+        if (enabledDarkMode()) {
+            loadScheme ("dark");
+        }
+        else {
+            loadScheme ("light");
+        }
+    </script>
+
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+        <div class='article'><h3 class='title'><a href='/post/rank-or-entertainment.html'>娱乐榜</a></h3><div class='time'>Mar 19 2009</div><div class='content'><p>翻开报纸，打开电视，最近某榜又成了媒体的宠儿。果不其然，可爱的媒体又把某榜的发布解读成一次娱乐事件了。</p>
+<p>发榜者那边似乎对此也没有更好地引导方法，虽然也做了办论坛之类的尝试和努力。其实，按照我对某榜的国际版的理解，某榜绝不是哗众取宠的娱乐榜，而是恰如其分地符合其财经媒体身份的一份报告，是编辑们对一年来社会发展趋势的解读，只不过这样的解读是将目光投向相对成功或知名的个人身上，本质上和旗下的其他榜——例如2000强企业榜，最佳中小企业榜等并无太大区别。一个名人在某榜上的起伏，理应反应出他/她所代表的行业/相对的受众人群在这一年的境况，收入的起伏也折射出行业的景气程度。如果单纯地变成娱乐榜，就好比在娱乐新闻里频频看到刘翔的消息一样，不是滋味。毕竟若干年前也曾目睹过制榜者之辛苦和认真，看到它在娱记的笔下变得这般“八卦”与“劲爆”，心里总免不了有些失落。<a href="#" id="more" name="more"></a></p>
+<p>不得不说，在对待上榜这件事的观念上，中西方的这帮名人们可谓泾渭分明。没听说奥普拉温芙利跳出来指摘榜单把她的收入注水了，尽管她坐了几年的老大位子。相反，中国版每每发榜，都有不少人叫屈连连，仿佛这榜上的数据真会变成下个月税务局征税的依据似的。虽然制榜者花费了很大的工夫通过一定的渠道去收集相关的数据，但这个榜上的收入终究不可能做到正确无误。因为除了有关部门，谁都不知道您精确的收入数字是多少（有关部门也没这么神通广大，可能只有上帝知道）。所以，与其说这个数字代表了收入，不如说它是一个量化的价值，不妨将其当作一个参照物，数字越大说明您的名人效应和社会价值越高，这难道不是好事么。可惜，大家都不这么想，还要忙着撇清自己没赚那么多，要上交这个单位那个上级。西人认为上榜是荣耀，财富是成功的象征；相反这边的名人们仍然信奉“人怕出名猪怕壮”、“闷声不响大发财”的态度，一方面拥有或渴望数量相当的财富，一方面又不愿招摇。这背后有文化差异的因素，有社会舆论的压力，自然，有时也是出于一些见不得阳光的理由（这类上榜人更多地见诸于富豪榜）。</p>
+<p>榜还是年复一年地再发，对这个榜的接受度也在逐年上升。只是那借榜炒作的娱乐媒体，似乎依旧沉浸在 make a fuss 的初级阶段，更有甚者不知榜上收入一栏的意义为何就满嘴胡喷。看来，这娱乐池子的混水还得继续趟着。</p></div></div>
+
+        <div id="find-all"><a href="/archive.html">All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :social="Social" :navs="Nav" :external="External" :stats="Stat" :status="status">
+        </header-zone>
+        <keep-live>
+            <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage"
+                :articles="bodydata" ref="mainCanvas">
+            </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>        
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>       
+        var senBasicData;
+        var currentMode = 'post';
+        function embedContentData() {
+            senBasicData.bodydata = {"fName":"rank-or-entertainment","artTitle":"娱乐榜","cTime":"Mar 19 2009","aTime":"Jun 9 2019","artContent":"<p>翻开报纸，打开电视，最近某榜又成了媒体的宠儿。果不其然，可爱的媒体又把某榜的发布解读成一次娱乐事件了。<\/p>\n<p>发榜者那边似乎对此也没有更好地引导方法，虽然也做了办论坛之类的尝试和努力。其实，按照我对某榜的国际版的理解，某榜绝不是哗众取宠的娱乐榜，而是恰如其分地符合其财经媒体身份的一份报告，是编辑们对一年来社会发展趋势的解读，只不过这样的解读是将目光投向相对成功或知名的个人身上，本质上和旗下的其他榜——例如2000强企业榜，最佳中小企业榜等并无太大区别。一个名人在某榜上的起伏，理应反应出他\/她所代表的行业\/相对的受众人群在这一年的境况，收入的起伏也折射出行业的景气程度。如果单纯地变成娱乐榜，就好比在娱乐新闻里频频看到刘翔的消息一样，不是滋味。毕竟若干年前也曾目睹过制榜者之辛苦和认真，看到它在娱记的笔下变得这般“八卦”与“劲爆”，心里总免不了有些失落。<a href=\"#\" id=\"more\" name=\"more\"><\/a><\/p>\n<p>不得不说，在对待上榜这件事的观念上，中西方的这帮名人们可谓泾渭分明。没听说奥普拉温芙利跳出来指摘榜单把她的收入注水了，尽管她坐了几年的老大位子。相反，中国版每每发榜，都有不少人叫屈连连，仿佛这榜上的数据真会变成下个月税务局征税的依据似的。虽然制榜者花费了很大的工夫通过一定的渠道去收集相关的数据，但这个榜上的收入终究不可能做到正确无误。因为除了有关部门，谁都不知道您精确的收入数字是多少（有关部门也没这么神通广大，可能只有上帝知道）。所以，与其说这个数字代表了收入，不如说它是一个量化的价值，不妨将其当作一个参照物，数字越大说明您的名人效应和社会价值越高，这难道不是好事么。可惜，大家都不这么想，还要忙着撇清自己没赚那么多，要上交这个单位那个上级。西人认为上榜是荣耀，财富是成功的象征；相反这边的名人们仍然信奉“人怕出名猪怕壮”、“闷声不响大发财”的态度，一方面拥有或渴望数量相当的财富，一方面又不愿招摇。这背后有文化差异的因素，有社会舆论的压力，自然，有时也是出于一些见不得阳光的理由（这类上榜人更多地见诸于富豪榜）。<\/p>\n<p>榜还是年复一年地再发，对这个榜的接受度也在逐年上升。只是那借榜炒作的娱乐媒体，似乎依旧沉浸在 make a fuss 的初级阶段，更有甚者不知榜上收入一栏的意义为何就满嘴胡喷。看来，这娱乐池子的混水还得继续趟着。<\/p>","artSummary":"<p>翻开报纸，打开电视，最近某榜又成了媒体的宠儿。果不其然，可爱的媒体又把某榜的发布解读成一次娱乐事件了。<\/p>\n<p>发榜者那边似乎对此也没有更好地引导方法，虽然也做了办论坛之类的尝试和努力。其实，按照我对某榜的国际版的理解，某榜绝不是哗众取宠的娱乐榜，而是恰如其分地符合其财经媒体身份的一份报告，是编辑们对一年来社会发展趋势的解读，只不过这样的解读是将目光投向相对成功或知名的个人身上，本质上和旗下的其他榜——例如2000强企业榜，最佳中小企业榜等并无太大区别。一个名人在某榜上的起伏，理应反应出他\/她所代表的行业\/相对的受众人群在这一年的境况，收入的起伏也折射出行业的景气程度。如果单纯地变成娱乐榜，就好比在娱乐新闻里频频看到刘翔的消息一样，不是滋味。毕竟若干年前也曾目睹过制榜者之辛苦和认真，看到它在娱记的笔下变得这般“八卦”与“劲爆”，心里总免不了有些失落。<\/p>","artTags":[],"aSet":[],"cTimeRaw":"1237445116"};
+            renderNow();
+        }
+    </script>
+     
+    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+</body>
+</html>

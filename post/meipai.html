@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>说说美拍 | Bob's Corner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/resource/elf.min.css">
+    <link crossorigin="anonymous" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-N8GAcUjeZwBphCJXwZX++LNEFcUiHWR7d9QM2cLV5PzodNKLThczC8xKRt1lNz5U" src="https://lib.baomitu.com/reqwest/2.0.5/reqwest.min.js"></script>
+    
+    <link crossorigin="anonymous" integrity="sha384-//f24QOH7LRcdGyo/NwN+l9yR/vegHuCBYlrXF138+eoV+Dn3DdA2xJh2O4zCrhV" href="https://lib.baomitu.com/highlight.js/9.15.10/styles/vs2015.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-T+w74+ZcvFfVqhBgPlvEYQ8xtCT/GIKWZa6UREApz0kndqJSZMXfJ6urjwKHJsVi" src="https://lib.baomitu.com/highlight.js/9.15.8/highlight.min.js"></script>    
+    
+</head>
+
+<body class="elf">
+    <div id="enableDarkMode"></div>
+    <!-- Load Dark Mode or Light Mode -->
+    <style>
+        #enableDarkMode {
+            height: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            #enableDarkMode {
+                height: 1px;
+            }
+        }
+    </style>
+    <script>
+        function loadStyle(url){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function enabledDarkMode () {
+            let today = new Date ();
+            let darkmode = localStorage.getItem('darkmode');
+            if (localStorage.hasOwnProperty('darkmode')) {
+                let dm = localStorage.getItem('darkmode').split('|');             
+                if (today.getTime() - dm[1] < 24*3600) {
+                    if (dm[0] == 1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } 
+                else {
+                    localStorage.removeItem('darkmode');
+                }
+            }
+            let userChoseDark = window.getComputedStyle(document.getElementById("enableDarkMode")).getPropertyValue('height') == '1px' ? true : false;
+            if (userChoseDark) {
+                return true;
+            }            
+            let currentHour = today.getHours ();
+            if (currentHour > 6 && currentHour < 18) {
+                return false;
+            }
+            return true;
+        }
+
+        function loadScheme (scheme) {
+            let today = new Date ();
+            let settime = today.getTime();
+            if (scheme == 'dark') {
+                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "1|"+settime);
+            }
+            else {
+                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                localStorage.setItem('darkmode', "0|"+settime);
+            }
+        }
+
+        if (enabledDarkMode()) {
+            loadScheme ("dark");
+        }
+        else {
+            loadScheme ("light");
+        }
+    </script>
+
+    <!-- Start static data for non-js compatible user, eg. bot. -->
+    <div id="body-wrapper">
+        <div class='article'><h3 class='title'><a href='/post/meipai.html'>说说美拍</a></h3><div class='time'>May 18 2014</div><div class='content'><blockquote>
+<p>5月8日，刚上线1天的短视频拍摄软件“美拍”即荣登App Store免费榜榜首的位置，这款由美图秀秀出品的软件，在内测期间就因其惊艳的效果，被很多用户称呼为“视频界的美图秀秀”。</p>
+</blockquote>
+<p>最近微信朋友圈被各路好友们的<a href="http://www.meipai.com/">美拍</a>短视频占领了。这让我不禁思考为什么美拍会瞬间火到不行。</p>
+<p>短视频应用并不新鲜。依稀记得早在诺基亚塞班机大行其道的时代，就曾有一款套用模板自动制作个人视频的软件Muvee（现在好像仍然活着）。往近了说，Vine、微可拍、微视、Instagram等等，全都走在美拍的前面。美拍的走红，可以归结于：</p>
+<ul>
+<li>照顾“美颜”需求，通过朦胧美的滤镜，让用户不用努力也能做出看上去很美的视频。</li>
+<li>利用美图秀秀的人气，迅速攻占低龄和女性市场。</li>
+<li>发力于4G方兴未艾之际，移动互联网网速的飙升让边走边拍高清短视频成为可能。</li>
+</ul>
+<p>美拍能红多久，让我们拭目以待。</p></div></div>
+
+        <div id="find-all"><a href="/archive.html">All Articles</a></div>
+    </div>
+
+    <!-- Start actual presentation for human. -->
+    <div id="main-canvas" v-on:scroll.native="autoShrinkHeader">
+        <div id="sn-lightbox" v-if="status.isLoading">
+            <div id="loader" class="row centered vertical-center"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+        <header-zone :site="Site" :social="Social" :navs="Nav" :external="External" :stats="Stat" :status="status">
+        </header-zone>
+        <keep-live>
+            <component :is="currentActiveMode" :site="Site" :status="status" :total-page="TotalPage"
+                :articles="bodydata" ref="mainCanvas">
+            </component>
+        </keep-live>
+        <footer-zone :site="Site" :status="status">
+        </footer-zone>        
+    </div>
+
+    <!-- Start data filling with Vue.js. -->
+    <script>       
+        var senBasicData;
+        var currentMode = 'post';
+        function embedContentData() {
+            senBasicData.bodydata = {"fName":"meipai","artTitle":"说说美拍","cTime":"May 18 2014","aTime":"Jun 9 2019","artContent":"<blockquote>\n<p>5月8日，刚上线1天的短视频拍摄软件“美拍”即荣登App Store免费榜榜首的位置，这款由美图秀秀出品的软件，在内测期间就因其惊艳的效果，被很多用户称呼为“视频界的美图秀秀”。<\/p>\n<\/blockquote>\n<p>最近微信朋友圈被各路好友们的<a href=\"http:\/\/www.meipai.com\/\">美拍<\/a>短视频占领了。这让我不禁思考为什么美拍会瞬间火到不行。<\/p>\n<p>短视频应用并不新鲜。依稀记得早在诺基亚塞班机大行其道的时代，就曾有一款套用模板自动制作个人视频的软件Muvee（现在好像仍然活着）。往近了说，Vine、微可拍、微视、Instagram等等，全都走在美拍的前面。美拍的走红，可以归结于：<\/p>\n<ul>\n<li>照顾“美颜”需求，通过朦胧美的滤镜，让用户不用努力也能做出看上去很美的视频。<\/li>\n<li>利用美图秀秀的人气，迅速攻占低龄和女性市场。<\/li>\n<li>发力于4G方兴未艾之际，移动互联网网速的飙升让边走边拍高清短视频成为可能。<\/li>\n<\/ul>\n<p>美拍能红多久，让我们拭目以待。<\/p>","artSummary":"<blockquote>\n<p>5月8日，刚上线1天的短视频拍摄软件“美拍”即荣登App Store免费榜榜首的位置，这款由美图秀秀出品的软件，在内测期间就因其惊艳的效果，被很多用户称呼为“视频界的美图秀秀”。<\/p>\n<\/blockquote>\n<p>最近微信朋友圈被各路好友们的<a href=\"http:\/\/www.meipai.com\/\">美拍<\/a>短视频占领了。这让我不禁思考为什么美拍会瞬间火到不行。<\/p>\n<p>短视频应用并不新鲜。依稀记得早在诺基亚塞班机大行其道的时代，就曾有一款套用模板自动制作个人视频的软件Muvee（现在好像仍然活着）。往近了说，Vine、微可拍、微视、Instagram等等，全都走在美拍的前面。美拍的走红，可以归结于：<\/p>\n<ul>\n<li>照顾“美颜”需求，通过朦胧美的滤镜，让用户不用努力也能做出看上去很美的视频。<\/li>\n<li>利用美图秀秀的人气，迅速攻占低龄和女性市场。<\/li>\n<li>发力于4G方兴未艾之际，移动互联网网速的飙升让边走边拍高清短视频成为可能。<\/li>\n<\/ul>\n<p>美拍能红多久，让我们拭目以待。<\/p>","artTags":["网事"],"aSet":[],"cTimeRaw":"1400421903"};
+            renderNow();
+        }
+    </script>
+     
+    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+</body>
+</html>
