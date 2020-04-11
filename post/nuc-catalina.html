@@ -43,7 +43,7 @@
             let darkmode = localStorage.getItem('darkmode');
             if (localStorage.hasOwnProperty('darkmode')) {
                 let dm = localStorage.getItem('darkmode').split('|');             
-                if (today.getTime() - dm[1] < 24*3600) {
+                if (today.getTime() - dm[1] < 24*3600*1000) {
                     if (dm[0] == 1) {
                         return true;
                     } else {
@@ -62,18 +62,18 @@
             if (currentHour > 6 && currentHour < 18) {
                 return false;
             }
-            return true;
+            return false;
         }
 
         function loadScheme (scheme) {
             let today = new Date ();
             let settime = today.getTime();
             if (scheme == 'dark') {
-                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                loadStyle ("/resource/main_dark.min.css?v=6eceb9eaa8626c60c68af149c52a6d18");
                 localStorage.setItem('darkmode', "1|"+settime);
             }
             else {
-                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                loadStyle ("/resource/main_light.min.css?v=6eceb9eaa8626c60c68af149c52a6d18");
                 localStorage.setItem('darkmode', "0|"+settime);
             }
         }
@@ -88,15 +88,15 @@
 
     <!-- Start static data for non-js compatible user, eg. bot. -->
     <div id="body-wrapper">
-        <div class='article'><h3 class='title'><a href='/post/nuc-catalina.html'>NUC8i5全新安装macOS 10.15 Catalina笔记</a></h3><div class='time'>Oct 12 2019</div><div class='content'><div id="article-toc"><ul><li><a href="#chapter-0c19fa0a">前言</a></li>
-<li><a href="#chapter-f016cc3a">硬件</a></li>
-<li><a href="#chapter-d4e25d03">准备USB安装盘</a></li>
-<li><a href="#chapter-5b460400">正式安装</a></li>
-<li><a href="#chapter-a12d41ed">无线网络</a></li>
-<li><a href="#chapter-0c43a9af">后续</a></li></ul></div><h3 id="chapter-0c19fa0a">前言</h3>
+        <div class='article'><h3 class='title'><a href='/post/nuc-catalina.html'>NUC8i5全新安装macOS 10.15 Catalina笔记</a></h3><div class='time'>Oct 12 2019</div><div class='content'><div id="article-toc"><ul><li><a href="#chapter-23133d4b">前言</a></li>
+<li><a href="#chapter-3e29dc25">硬件</a></li>
+<li><a href="#chapter-b994994d">准备USB安装盘</a></li>
+<li><a href="#chapter-d870937f">正式安装</a></li>
+<li><a href="#chapter-1f7e544b">无线网络</a></li>
+<li><a href="#chapter-358fe720">后续</a></li></ul></div><h3 id="chapter-23133d4b">前言</h3>
 <p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。</p>
 <p><img src="https://s2.ax1x.com/2019/11/06/Mics0K.md.jpg" alt="macOS Catalina" /></p>
-<h3 id="chapter-f016cc3a">硬件</h3>
+<h3 id="chapter-3e29dc25">硬件</h3>
 <p>NUC搭载七八代i3/i5/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。</p>
 <p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href="https://chengxuxiaohei.cn/mac-anzhuang">https://chengxuxiaohei.cn/mac-anzhuang</a> 。USB网卡的挑选稍后详述。</p>
 <p>笔者最后选购配件如下：</p>
@@ -106,7 +106,7 @@
 <li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）</li>
 </ul>
 <p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。</p>
-<h3 id="chapter-d4e25d03">准备USB安装盘</h3>
+<h3 id="chapter-b994994d">准备USB安装盘</h3>
 <ol>
 <li>找一根可被格式化的16G的USB 3.0 U盘。</li>
 <li>去<strong>黑果小兵</strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href="https://blog.daliansky.net/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html">https://blog.daliansky.net/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html</a></li>
@@ -120,12 +120,12 @@
 <li>EFI挂载出来后，双击桌面上的图标打开，找到clover文件夹，把里面除了cloverx64.efi之外的文件全部删除，并把第4步里下到的文件复制到这里。</li>
 <li>照此做完的U盘就可以用来安装Catalina了，接下来的过程将会一路顺利。<a href="#" id="more" name="more"></a></li>
 </ol>
-<h3 id="chapter-5b460400">正式安装</h3>
+<h3 id="chapter-d870937f">正式安装</h3>
 <ol>
 <li>把U盘插到NUC上，等待Clover的引导界面出来。</li>
 <li>接下来可以按照程序小黑的帖子的 <strong>使用Clover UEFI在NUC上引导macOS安装程序</strong> 这一章节操作。只需操作 1 - 9 步，也就是到把EFI搬迁到主硬盘为止，后面的步骤是替换Catalina专用的EFI，我们已经在上面做完了。这1-9步基本是一路无脑继续，重点是：在安装完成前每次重启加载苹果系统时，都要输入FakeID，否则会卡住！安装完（进过系统设置完账号、键盘后）再重启就不需要输入FakeID了。</li>
 </ol>
-<h3 id="chapter-a12d41ed">无线网络</h3>
+<h3 id="chapter-1f7e544b">无线网络</h3>
 <p>这块USB无线网卡虽然有Mac驱动，但客服给的驱动只支持到Mojave，在Catalina下直接告诉你不能安装。
 最后使用外国网友开发的USB网卡驱动 for Catalina搞定。下载和安装方法：<a href="https://github.com/chris1111/Wireless-USB-Adapter-Clover">https://github.com/chris1111/Wireless-USB-Adapter-Clover</a></p>
 <p>注意事项：</p>
@@ -134,7 +134,7 @@
 <li>发现程序小黑的Clover设置中，SIP是默认关闭的，所以节省了一步，Chris1111的这个驱动可以直接装。</li>
 <li>重启后就会在taskbar看到很难看的网卡图标，点击选择Wi-Fi输密码吧，终于可以上网了！</li>
 </ol>
-<h3 id="chapter-0c43a9af">后续</h3>
+<h3 id="chapter-358fe720">后续</h3>
 <ul>
 <li>蓝牙还没空搞，Intel的板载蓝牙需要在Windows下激活才能正常在Mac下使用。</li>
 <li>待安装：Windows to Go。</li>
@@ -165,11 +165,11 @@
         var senBasicData;
         var currentMode = 'post';
         function embedContentData() {
-            senBasicData.bodydata = {"fName":"nuc-catalina","artTitle":"NUC8i5全新安装macOS 10.15 Catalina笔记","cTime":"Oct 12 2019","aTime":"Nov 6 2019","artContent":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-0c19fa0a\">前言<\/a><\/li>\n<li><a href=\"#chapter-f016cc3a\">硬件<\/a><\/li>\n<li><a href=\"#chapter-d4e25d03\">准备USB安装盘<\/a><\/li>\n<li><a href=\"#chapter-5b460400\">正式安装<\/a><\/li>\n<li><a href=\"#chapter-a12d41ed\">无线网络<\/a><\/li>\n<li><a href=\"#chapter-0c43a9af\">后续<\/a><\/li><\/ul><\/div><h3 id=\"chapter-0c19fa0a\">前言<\/h3>\n<p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。<\/p>\n<p><img src=\"https:\/\/s2.ax1x.com\/2019\/11\/06\/Mics0K.md.jpg\" alt=\"macOS Catalina\" \/><\/p>\n<h3 id=\"chapter-f016cc3a\">硬件<\/h3>\n<p>NUC搭载七八代i3\/i5\/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。<\/p>\n<p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href=\"https:\/\/chengxuxiaohei.cn\/mac-anzhuang\">https:\/\/chengxuxiaohei.cn\/mac-anzhuang<\/a> 。USB网卡的挑选稍后详述。<\/p>\n<p>笔者最后选购配件如下：<\/p>\n<ul>\n<li>威刚，万紫千红ddr4内存，8G<\/li>\n<li>Asgard，AN系列M.2固态硬盘，256G<\/li>\n<li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）<\/li>\n<\/ul>\n<p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。<\/p>\n<h3 id=\"chapter-d4e25d03\">准备USB安装盘<\/h3>\n<ol>\n<li>找一根可被格式化的16G的USB 3.0 U盘。<\/li>\n<li>去<strong>黑果小兵<\/strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href=\"https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html\">https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html<\/a><\/li>\n<li>下载完后，参考黑果小兵的原帖，用<strong>etcher<\/strong>把镜像写入U盘。<\/li>\n<li><a href=\"https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI\">https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI<\/a> 下载Catalina用的EFI文件<\/li>\n<li>直接用刚才做好的黑果小兵U盘安装会出错哦。先想办法挂载上U盘的EFI分区以便修改。如果是在mac下，插上U盘后到终端，这样挂载：<\/li>\n<\/ol>\n<p><code>sudo diskutil mount disk1s1<\/code><\/p>\n<p>其中，disk1中1为U盘的序号，s1中的1为EFI所在分区的序号。不清楚的话可以先用 diskutil list 命令查看。<\/p>\n<ol start=\"6\">\n<li>EFI挂载出来后，双击桌面上的图标打开，找到clover文件夹，把里面除了cloverx64.efi之外的文件全部删除，并把第4步里下到的文件复制到这里。<\/li>\n<li>照此做完的U盘就可以用来安装Catalina了，接下来的过程将会一路顺利。<a href=\"#\" id=\"more\" name=\"more\"><\/a><\/li>\n<\/ol>\n<h3 id=\"chapter-5b460400\">正式安装<\/h3>\n<ol>\n<li>把U盘插到NUC上，等待Clover的引导界面出来。<\/li>\n<li>接下来可以按照程序小黑的帖子的 <strong>使用Clover UEFI在NUC上引导macOS安装程序<\/strong> 这一章节操作。只需操作 1 - 9 步，也就是到把EFI搬迁到主硬盘为止，后面的步骤是替换Catalina专用的EFI，我们已经在上面做完了。这1-9步基本是一路无脑继续，重点是：在安装完成前每次重启加载苹果系统时，都要输入FakeID，否则会卡住！安装完（进过系统设置完账号、键盘后）再重启就不需要输入FakeID了。<\/li>\n<\/ol>\n<h3 id=\"chapter-a12d41ed\">无线网络<\/h3>\n<p>这块USB无线网卡虽然有Mac驱动，但客服给的驱动只支持到Mojave，在Catalina下直接告诉你不能安装。\n最后使用外国网友开发的USB网卡驱动 for Catalina搞定。下载和安装方法：<a href=\"https:\/\/github.com\/chris1111\/Wireless-USB-Adapter-Clover\">https:\/\/github.com\/chris1111\/Wireless-USB-Adapter-Clover<\/a><\/p>\n<p>注意事项：<\/p>\n<ol>\n<li>黑苹果关闭\/打开SIP的方法比白苹果更简单，可以在Clover中直接操作，不必进入Mac修复模式。参考：<a href=\"https:\/\/hackintosher.com\/forums\/thread\/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53\/\">https:\/\/hackintosher.com\/forums\/thread\/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53\/<\/a><\/li>\n<li>发现程序小黑的Clover设置中，SIP是默认关闭的，所以节省了一步，Chris1111的这个驱动可以直接装。<\/li>\n<li>重启后就会在taskbar看到很难看的网卡图标，点击选择Wi-Fi输密码吧，终于可以上网了！<\/li>\n<\/ol>\n<h3 id=\"chapter-0c43a9af\">后续<\/h3>\n<ul>\n<li>蓝牙还没空搞，Intel的板载蓝牙需要在Windows下激活才能正常在Mac下使用。<\/li>\n<li>待安装：Windows to Go。<\/li>\n<li>没有办法用AirDrop和接力，无解。暂时用NAS做中转来互传文件。<\/li>\n<\/ul>","artSummary":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-29367954\">前言<\/a><\/li>\n<li><a href=\"#chapter-2edcb3e0\">硬件<\/a><\/li>\n<li><a href=\"#chapter-a39da0b4\">准备USB安装盘<\/a><\/li><\/ul><\/div><h3 id=\"chapter-29367954\">前言<\/h3>\n<p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。<\/p>\n<p><img src=\"https:\/\/s2.ax1x.com\/2019\/11\/06\/Mics0K.md.jpg\" alt=\"macOS Catalina\" \/><\/p>\n<h3 id=\"chapter-2edcb3e0\">硬件<\/h3>\n<p>NUC搭载七八代i3\/i5\/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。<\/p>\n<p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href=\"https:\/\/chengxuxiaohei.cn\/mac-anzhuang\">https:\/\/chengxuxiaohei.cn\/mac-anzhuang<\/a> 。USB网卡的挑选稍后详述。<\/p>\n<p>笔者最后选购配件如下：<\/p>\n<ul>\n<li>威刚，万紫千红ddr4内存，8G<\/li>\n<li>Asgard，AN系列M.2固态硬盘，256G<\/li>\n<li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）<\/li>\n<\/ul>\n<p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。<\/p>\n<h3 id=\"chapter-a39da0b4\">准备USB安装盘<\/h3>\n<ol>\n<li>找一根可被格式化的16G的USB 3.0 U盘。<\/li>\n<li>去<strong>黑果小兵<\/strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href=\"https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html\">https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html<\/a><\/li>\n<li>下载完后，参考黑果小兵的原帖，用<strong>etcher<\/strong>把镜像写入U盘。<\/li>\n<li><a href=\"https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI\">https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI<\/a> 下载Catalina用的EFI文件<\/li>\n<li>直接用刚才做好的黑果小兵U盘安装会出错哦。先想办法挂载上U盘的EFI分区以便修改。如果是在mac下，插上U盘后到终端，这样挂载：<\/li>\n<\/ol>\n<p><code>sudo diskutil mount disk1s1<\/code><\/p>\n<p>其中，disk1中1为U盘的序号，s1中的1为EFI所在分区的序号。不清楚的话可以先用 diskutil list 命令查看。<\/p>\n<ol start=\"6\">\n<li>EFI挂载出来后，双击桌面上的图标打开，找到clover文件夹，把里面除了cloverx64.efi之外的文件全部删除，并把第4步里下到的文件复制到这里。<\/li>\n<li>照此做完的U盘就可以用来安装Catalina了，接下来的过程将会一路顺利。<\/li>\n<\/ol>","artTags":["macOS","Nuc"],"aSet":[],"cTimeRaw":"1570892400"};
+            senBasicData.bodydata = {"fName":"nuc-catalina","artTitle":"NUC8i5全新安装macOS 10.15 Catalina笔记","cTime":"Oct 12 2019","aTime":"Nov 6 2019","artContent":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-23133d4b\">前言<\/a><\/li>\n<li><a href=\"#chapter-3e29dc25\">硬件<\/a><\/li>\n<li><a href=\"#chapter-b994994d\">准备USB安装盘<\/a><\/li>\n<li><a href=\"#chapter-d870937f\">正式安装<\/a><\/li>\n<li><a href=\"#chapter-1f7e544b\">无线网络<\/a><\/li>\n<li><a href=\"#chapter-358fe720\">后续<\/a><\/li><\/ul><\/div><h3 id=\"chapter-23133d4b\">前言<\/h3>\n<p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。<\/p>\n<p><img src=\"https:\/\/s2.ax1x.com\/2019\/11\/06\/Mics0K.md.jpg\" alt=\"macOS Catalina\" \/><\/p>\n<h3 id=\"chapter-3e29dc25\">硬件<\/h3>\n<p>NUC搭载七八代i3\/i5\/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。<\/p>\n<p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href=\"https:\/\/chengxuxiaohei.cn\/mac-anzhuang\">https:\/\/chengxuxiaohei.cn\/mac-anzhuang<\/a> 。USB网卡的挑选稍后详述。<\/p>\n<p>笔者最后选购配件如下：<\/p>\n<ul>\n<li>威刚，万紫千红ddr4内存，8G<\/li>\n<li>Asgard，AN系列M.2固态硬盘，256G<\/li>\n<li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）<\/li>\n<\/ul>\n<p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。<\/p>\n<h3 id=\"chapter-b994994d\">准备USB安装盘<\/h3>\n<ol>\n<li>找一根可被格式化的16G的USB 3.0 U盘。<\/li>\n<li>去<strong>黑果小兵<\/strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href=\"https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html\">https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html<\/a><\/li>\n<li>下载完后，参考黑果小兵的原帖，用<strong>etcher<\/strong>把镜像写入U盘。<\/li>\n<li><a href=\"https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI\">https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI<\/a> 下载Catalina用的EFI文件<\/li>\n<li>直接用刚才做好的黑果小兵U盘安装会出错哦。先想办法挂载上U盘的EFI分区以便修改。如果是在mac下，插上U盘后到终端，这样挂载：<\/li>\n<\/ol>\n<p><code>sudo diskutil mount disk1s1<\/code><\/p>\n<p>其中，disk1中1为U盘的序号，s1中的1为EFI所在分区的序号。不清楚的话可以先用 diskutil list 命令查看。<\/p>\n<ol start=\"6\">\n<li>EFI挂载出来后，双击桌面上的图标打开，找到clover文件夹，把里面除了cloverx64.efi之外的文件全部删除，并把第4步里下到的文件复制到这里。<\/li>\n<li>照此做完的U盘就可以用来安装Catalina了，接下来的过程将会一路顺利。<a href=\"#\" id=\"more\" name=\"more\"><\/a><\/li>\n<\/ol>\n<h3 id=\"chapter-d870937f\">正式安装<\/h3>\n<ol>\n<li>把U盘插到NUC上，等待Clover的引导界面出来。<\/li>\n<li>接下来可以按照程序小黑的帖子的 <strong>使用Clover UEFI在NUC上引导macOS安装程序<\/strong> 这一章节操作。只需操作 1 - 9 步，也就是到把EFI搬迁到主硬盘为止，后面的步骤是替换Catalina专用的EFI，我们已经在上面做完了。这1-9步基本是一路无脑继续，重点是：在安装完成前每次重启加载苹果系统时，都要输入FakeID，否则会卡住！安装完（进过系统设置完账号、键盘后）再重启就不需要输入FakeID了。<\/li>\n<\/ol>\n<h3 id=\"chapter-1f7e544b\">无线网络<\/h3>\n<p>这块USB无线网卡虽然有Mac驱动，但客服给的驱动只支持到Mojave，在Catalina下直接告诉你不能安装。\n最后使用外国网友开发的USB网卡驱动 for Catalina搞定。下载和安装方法：<a href=\"https:\/\/github.com\/chris1111\/Wireless-USB-Adapter-Clover\">https:\/\/github.com\/chris1111\/Wireless-USB-Adapter-Clover<\/a><\/p>\n<p>注意事项：<\/p>\n<ol>\n<li>黑苹果关闭\/打开SIP的方法比白苹果更简单，可以在Clover中直接操作，不必进入Mac修复模式。参考：<a href=\"https:\/\/hackintosher.com\/forums\/thread\/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53\/\">https:\/\/hackintosher.com\/forums\/thread\/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53\/<\/a><\/li>\n<li>发现程序小黑的Clover设置中，SIP是默认关闭的，所以节省了一步，Chris1111的这个驱动可以直接装。<\/li>\n<li>重启后就会在taskbar看到很难看的网卡图标，点击选择Wi-Fi输密码吧，终于可以上网了！<\/li>\n<\/ol>\n<h3 id=\"chapter-358fe720\">后续<\/h3>\n<ul>\n<li>蓝牙还没空搞，Intel的板载蓝牙需要在Windows下激活才能正常在Mac下使用。<\/li>\n<li>待安装：Windows to Go。<\/li>\n<li>没有办法用AirDrop和接力，无解。暂时用NAS做中转来互传文件。<\/li>\n<\/ul>","artSummary":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-fe2d9e60\">前言<\/a><\/li>\n<li><a href=\"#chapter-94185395\">硬件<\/a><\/li>\n<li><a href=\"#chapter-0903f57c\">准备USB安装盘<\/a><\/li><\/ul><\/div><h3 id=\"chapter-fe2d9e60\">前言<\/h3>\n<p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。<\/p>\n<p><img src=\"https:\/\/s2.ax1x.com\/2019\/11\/06\/Mics0K.md.jpg\" alt=\"macOS Catalina\" \/><\/p>\n<h3 id=\"chapter-94185395\">硬件<\/h3>\n<p>NUC搭载七八代i3\/i5\/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。<\/p>\n<p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href=\"https:\/\/chengxuxiaohei.cn\/mac-anzhuang\">https:\/\/chengxuxiaohei.cn\/mac-anzhuang<\/a> 。USB网卡的挑选稍后详述。<\/p>\n<p>笔者最后选购配件如下：<\/p>\n<ul>\n<li>威刚，万紫千红ddr4内存，8G<\/li>\n<li>Asgard，AN系列M.2固态硬盘，256G<\/li>\n<li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）<\/li>\n<\/ul>\n<p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。<\/p>\n<h3 id=\"chapter-0903f57c\">准备USB安装盘<\/h3>\n<ol>\n<li>找一根可被格式化的16G的USB 3.0 U盘。<\/li>\n<li>去<strong>黑果小兵<\/strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href=\"https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html\">https:\/\/blog.daliansky.net\/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html<\/a><\/li>\n<li>下载完后，参考黑果小兵的原帖，用<strong>etcher<\/strong>把镜像写入U盘。<\/li>\n<li><a href=\"https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI\">https:\/\/github.com\/dongyubin\/nuc8i5beh\/tree\/master\/Catalina\/5066EFI<\/a> 下载Catalina用的EFI文件<\/li>\n<li>直接用刚才做好的黑果小兵U盘安装会出错哦。先想办法挂载上U盘的EFI分区以便修改。如果是在mac下，插上U盘后到终端，这样挂载：<\/li>\n<\/ol>\n<p><code>sudo diskutil mount disk1s1<\/code><\/p>\n<p>其中，disk1中1为U盘的序号，s1中的1为EFI所在分区的序号。不清楚的话可以先用 diskutil list 命令查看。<\/p>\n<ol start=\"6\">\n<li>EFI挂载出来后，双击桌面上的图标打开，找到clover文件夹，把里面除了cloverx64.efi之外的文件全部删除，并把第4步里下到的文件复制到这里。<\/li>\n<li>照此做完的U盘就可以用来安装Catalina了，接下来的过程将会一路顺利。<\/li>\n<\/ol>","artTags":["macOS","Nuc"],"aSet":[],"cTimeRaw":"1570892400"};
             renderNow();
         }
     </script>
      
-    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+    <script src="/resource/main.min.js?v=6eceb9eaa8626c60c68af149c52a6d18"></script>
 </body>
 </html>

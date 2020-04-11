@@ -43,7 +43,7 @@
             let darkmode = localStorage.getItem('darkmode');
             if (localStorage.hasOwnProperty('darkmode')) {
                 let dm = localStorage.getItem('darkmode').split('|');             
-                if (today.getTime() - dm[1] < 24*3600) {
+                if (today.getTime() - dm[1] < 24*3600*1000) {
                     if (dm[0] == 1) {
                         return true;
                     } else {
@@ -62,18 +62,18 @@
             if (currentHour > 6 && currentHour < 18) {
                 return false;
             }
-            return true;
+            return false;
         }
 
         function loadScheme (scheme) {
             let today = new Date ();
             let settime = today.getTime();
             if (scheme == 'dark') {
-                loadStyle ("/resource/main_dark.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                loadStyle ("/resource/main_dark.min.css?v=6eceb9eaa8626c60c68af149c52a6d18");
                 localStorage.setItem('darkmode', "1|"+settime);
             }
             else {
-                loadStyle ("/resource/main_light.min.css?v=b28b52c30b7e348a7eea55852816450c");
+                loadStyle ("/resource/main_light.min.css?v=6eceb9eaa8626c60c68af149c52a6d18");
                 localStorage.setItem('darkmode', "0|"+settime);
             }
         }
@@ -156,6 +156,6 @@ Location: Tokyo National Museum, Tokyo
         }
     </script>
      
-    <script src="/resource/main.min.js?v=b28b52c30b7e348a7eea55852816450c"></script>
+    <script src="/resource/main.min.js?v=6eceb9eaa8626c60c68af149c52a6d18"></script>
 </body>
 </html>
