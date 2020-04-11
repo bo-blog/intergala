@@ -69,11 +69,11 @@
             let today = new Date ();
             let settime = today.getTime();
             if (scheme == 'dark') {
-                loadStyle ("/resource/main_dark.min.css?v=58c27dd34b5e2b4504851b8b42f1ff1c");
+                loadStyle ("/resource/main_dark.min.css?v=6b024a54af6d6c4090cefff2a69f8d9c");
                 localStorage.setItem('darkmode', "1|"+settime);
             }
             else {
-                loadStyle ("/resource/main_light.min.css?v=58c27dd34b5e2b4504851b8b42f1ff1c");
+                loadStyle ("/resource/main_light.min.css?v=6b024a54af6d6c4090cefff2a69f8d9c");
                 localStorage.setItem('darkmode', "0|"+settime);
             }
         }
@@ -88,15 +88,15 @@
 
     <!-- Start static data for non-js compatible user, eg. bot. -->
     <div id="body-wrapper">
-        <div class='article'><h3 class='title'><a href='/post/disable-wechat-dark-mode.html'>科学地禁用微信的iOS深色模式</a></h3><div class='time'>Apr 5 2020</div><div class='content'><div id="article-toc"><ul><li><a href="#chapter-a56bcbeb">Step 1</a></li>
-<li><a href="#chapter-0627d14e">Step 2</a></li>
-<li><a href="#chapter-b86ff99a">Step 3</a></li>
-<li><a href="#chapter-76c05ac0">Step 4</a></li>
-<li><a href="#chapter-79026405">Step 5</a></li></ul></div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。</p>
+        <div class='article'><h3 class='title'><a href='/post/disable-wechat-dark-mode.html'>科学地禁用微信的iOS深色模式</a></h3><div class='time'>Apr 5 2020</div><div class='content'><div id="article-toc"><ul><li><a href="#chapter-5dc7c25b">Step 1</a></li>
+<li><a href="#chapter-c862a520">Step 2</a></li>
+<li><a href="#chapter-d4f57369">Step 3</a></li>
+<li><a href="#chapter-ced62ae4">Step 4</a></li>
+<li><a href="#chapter-0e751f50">Step 5</a></li></ul></div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。</p>
 <p>对于微信深色模式到底做得有多糟/好，不予评价。</p>
-<h3 id="chapter-a56bcbeb">Step 1</h3>
+<h3 id="chapter-5dc7c25b">Step 1</h3>
 <p>请先确保手机已安装 <strong>快捷指令</strong> 和 <strong>Scriptable</strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。<a href="#" id="more" name="more"></a></p>
-<h3 id="chapter-0627d14e">Step 2</h3>
+<h3 id="chapter-c862a520">Step 2</h3>
 <p>1）打开 <strong>快捷指令</strong>，选择底部第二个Tab <strong>自动化</strong>。</p>
 <p>2）点击 <strong>新建个人自动化。</strong></p>
 <p>3）在 <strong>设置</strong> 分组列表中找到 <strong>打开App</strong>。</p>
@@ -104,7 +104,7 @@
 <p>5）点击 <strong>下一步</strong>，点击 <strong>添加操作</strong>，在弹出的搜索框中输入 <strong>外观</strong>。在下方筛选出的操作中选择 <strong>设定外观</strong>。点击 <strong>将外观设为<em>深色</em></strong> ，改为 <strong><em>浅色</em></strong>。</p>
 <p>6）点击 <strong>下一步</strong>，关闭 <strong>运行前询问</strong>。点击 <strong>完成</strong>。</p>
 <p>本环节完成。至此，我们确保了微信打开后iOS自动将系统外观切换到浅色模式。</p>
-<h3 id="chapter-b86ff99a">Step 3</h3>
+<h3 id="chapter-d4f57369">Step 3</h3>
 <p>1）打开 <strong>Scriptable</strong>，点右上角 <strong>➕</strong> 新建一个空白脚本。内容如下：</p>
 <pre><code class="language-JavaScript">var t=new Date()
   if (t.getHours()&gt;=19 || t.getHours()&lt;6) {
@@ -113,7 +113,7 @@
 return null</code></pre>
 <p>这段JS的目的是判断当前时间是否位于19点之后次日6点之前。这是我偏向使用深色模式的时段，你可以根据个人习惯修改数字。</p>
 <p>2）在编辑界面点击左下角的第一个icon，将这个脚本重命名为 <em>isNight</em> 。保存。</p>
-<h3 id="chapter-76c05ac0">Step 4</h3>
+<h3 id="chapter-ced62ae4">Step 4</h3>
 <p>1）回到 <strong>快捷指令</strong> ，选择底部第二个Tab <strong>自动化</strong>。</p>
 <p>2）点击 <strong>加号</strong>，点击 <strong>新建个人自动化</strong>。</p>
 <p>3）在 <strong>设置</strong> 分组列表中找到 <strong>打开App</strong>。</p>
@@ -130,7 +130,7 @@ return null</code></pre>
 <p>14）点击 <strong>下一步</strong>，关闭 <strong>运行前询问</strong>。点击 <strong>完成</strong>。最终设定结果应该如下：</p>
 <p><a href="https://imgchr.com/i/GBotf0"><img src="https://s1.ax1x.com/2020/04/05/GBotf0.md.png" alt="GBotf0.md.png" /></a></p>
 <p>第四步完成。这一步将让我们选择的白名单里的app在夜间运行时保持深色模式，在白天则不会修改系统当前的设置。</p>
-<h3 id="chapter-79026405">Step 5</h3>
+<h3 id="chapter-0e751f50">Step 5</h3>
 <p>其实到第四步为止，自动切换的功能已经实现了。但是苹果这个自动化指令有个很蛋疼的地方，每次打开app都会弹一个通知告诉你：刚刚执行了自动化操作。注意是每一次，而且不能在设置 - 通知中关闭。</p>
 <p>为了解决这个蛋疼的设定，需要用到iOS一个良性的bug。</p>
 <p>1）首先，反复在微信和其他app之间切换十多次以上，每次都会有通知弹出。</p>
@@ -168,11 +168,11 @@ return null</code></pre>
         var senBasicData;
         var currentMode = 'post';
         function embedContentData() {
-            senBasicData.bodydata = {"fName":"disable-wechat-dark-mode","artTitle":"科学地禁用微信的iOS深色模式","cTime":"Apr 5 2020","aTime":"Apr 11 2020","artContent":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-a56bcbeb\">Step 1<\/a><\/li>\n<li><a href=\"#chapter-0627d14e\">Step 2<\/a><\/li>\n<li><a href=\"#chapter-b86ff99a\">Step 3<\/a><\/li>\n<li><a href=\"#chapter-76c05ac0\">Step 4<\/a><\/li>\n<li><a href=\"#chapter-79026405\">Step 5<\/a><\/li><\/ul><\/div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。<\/p>\n<p>对于微信深色模式到底做得有多糟\/好，不予评价。<\/p>\n<h3 id=\"chapter-a56bcbeb\">Step 1<\/h3>\n<p>请先确保手机已安装 <strong>快捷指令<\/strong> 和 <strong>Scriptable<\/strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。<a href=\"#\" id=\"more\" name=\"more\"><\/a><\/p>\n<h3 id=\"chapter-0627d14e\">Step 2<\/h3>\n<p>1）打开 <strong>快捷指令<\/strong>，选择底部第二个Tab <strong>自动化<\/strong>。<\/p>\n<p>2）点击 <strong>新建个人自动化。<\/strong><\/p>\n<p>3）在 <strong>设置<\/strong> 分组列表中找到 <strong>打开App<\/strong>。<\/p>\n<p>4）在 <strong>App<\/strong> 这一栏上点击 <strong>选取<\/strong> ，并选取 <strong>微信<\/strong>。<\/p>\n<p>5）点击 <strong>下一步<\/strong>，点击 <strong>添加操作<\/strong>，在弹出的搜索框中输入 <strong>外观<\/strong>。在下方筛选出的操作中选择 <strong>设定外观<\/strong>。点击 <strong>将外观设为<em>深色<\/em><\/strong> ，改为 <strong><em>浅色<\/em><\/strong>。<\/p>\n<p>6）点击 <strong>下一步<\/strong>，关闭 <strong>运行前询问<\/strong>。点击 <strong>完成<\/strong>。<\/p>\n<p>本环节完成。至此，我们确保了微信打开后iOS自动将系统外观切换到浅色模式。<\/p>\n<h3 id=\"chapter-b86ff99a\">Step 3<\/h3>\n<p>1）打开 <strong>Scriptable<\/strong>，点右上角 <strong>➕<\/strong> 新建一个空白脚本。内容如下：<\/p>\n<pre><code class=\"language-JavaScript\">var t=new Date()\n  if (t.getHours()&gt;=19 || t.getHours()&lt;6) {\n    return 1\n  }\nreturn null<\/code><\/pre>\n<p>这段JS的目的是判断当前时间是否位于19点之后次日6点之前。这是我偏向使用深色模式的时段，你可以根据个人习惯修改数字。<\/p>\n<p>2）在编辑界面点击左下角的第一个icon，将这个脚本重命名为 <em>isNight<\/em> 。保存。<\/p>\n<h3 id=\"chapter-76c05ac0\">Step 4<\/h3>\n<p>1）回到 <strong>快捷指令<\/strong> ，选择底部第二个Tab <strong>自动化<\/strong>。<\/p>\n<p>2）点击 <strong>加号<\/strong>，点击 <strong>新建个人自动化<\/strong>。<\/p>\n<p>3）在 <strong>设置<\/strong> 分组列表中找到 <strong>打开App<\/strong>。<\/p>\n<p>4）在 <strong>App<\/strong> 这一栏上点击 <strong>选取<\/strong> ，并通过打勾复选所有可被加入深色模式白名单的app。我选了26个之多。<\/p>\n<p>5）点击 <strong>下一步<\/strong>，点击 <strong>添加操作<\/strong>，在弹出的搜索框中输入 <strong>脚本<\/strong>。在下方筛选出的操作中选择 <strong>运行脚本<\/strong> （开头带Scriptable图标 ｛｝的那个）。<\/p>\n<p>6）在 <strong>Run Script with Parameter<\/strong> 这个操作条中，点击 <strong>Script<\/strong>。在弹出的脚本列表中选择刚才创建的脚本名 <strong>isNight<\/strong>。<\/p>\n<p>7）点击本页下方的➕ 添加新的操作。在弹出的搜索框中输入 <strong>变量<\/strong>。在下方筛选出的操作中选择 <strong>设定变量<\/strong>。<\/p>\n<p>8）点击 <strong>变量名称<\/strong>，输入任意字符。我们假设将变量命名为 <strong>isNightResult<\/strong>。这一个操作条最终显示为 <strong><em>将变量 isNightResult 设为 ｛｝Output<\/em><\/strong>。<\/p>\n<p>9）再次点击本页下方的➕ 添加新的操作。在弹出的搜索框中输入 <strong>如果<\/strong>。在下方筛选出的操作中选择 <strong>如果<\/strong>。<\/p>\n<p>10）点击 <strong>条件<\/strong>，选择 <strong>有任何值<\/strong>。<\/p>\n<p>11）按 <strong>否则<\/strong> 边上的 <strong>X，<\/strong>删除此分支<strong>。<\/strong><\/p>\n<p>12）再次点击本页下方的➕ 添加新的操作。在弹出的搜索框中输入 <strong>外观<\/strong>。在下方筛选出的操作中选择 <strong>设定外观<\/strong>。此时这条操作应该是 <strong><em>将外观设为深色<\/em><\/strong>。<\/p>\n<p>13）按住第12点设置好的操作，将其拖动到 <strong><em>如果isNightResult 有任何值<\/em><\/strong> 的下面。<\/p>\n<p>14）点击 <strong>下一步<\/strong>，关闭 <strong>运行前询问<\/strong>。点击 <strong>完成<\/strong>。最终设定结果应该如下：<\/p>\n<p><a href=\"https:\/\/imgchr.com\/i\/GBotf0\"><img src=\"https:\/\/s1.ax1x.com\/2020\/04\/05\/GBotf0.md.png\" alt=\"GBotf0.md.png\" \/><\/a><\/p>\n<p>第四步完成。这一步将让我们选择的白名单里的app在夜间运行时保持深色模式，在白天则不会修改系统当前的设置。<\/p>\n<h3 id=\"chapter-79026405\">Step 5<\/h3>\n<p>其实到第四步为止，自动切换的功能已经实现了。但是苹果这个自动化指令有个很蛋疼的地方，每次打开app都会弹一个通知告诉你：刚刚执行了自动化操作。注意是每一次，而且不能在设置 - 通知中关闭。<\/p>\n<p>为了解决这个蛋疼的设定，需要用到iOS一个良性的bug。<\/p>\n<p>1）首先，反复在微信和其他app之间切换十多次以上，每次都会有通知弹出。<\/p>\n<p>2）进入iOS的 <strong>设置<\/strong>。找到 <strong>屏幕使用时间<\/strong>。<\/p>\n<p>3）点击 <strong>查看所有活动<\/strong>。拉到底部，确保在 <strong>通知<\/strong> 这一个板块能看到<strong>快捷指令<\/strong>。如果看不到，重复<em>1）<\/em>的操作多次，直到快捷指令出现在这里。<\/p>\n<p>4）回到页面顶端，在 <strong>每周<\/strong> 和 <strong>每天<\/strong> 两个tab间反复切换若干次。然后拉到页面底部，查看 <strong>快捷指令<\/strong> 这一项是否出现了可以点击的 <strong>&gt; 右箭头<\/strong>。<\/p>\n<p><a href=\"https:\/\/imgchr.com\/i\/GBo8Ts\"><img src=\"https:\/\/s1.ax1x.com\/2020\/04\/05\/GBo8Ts.md.jpg\" alt=\"GBo8Ts.md.jpg\" \/><\/a><\/p>\n<p>5）点击这个箭头，终于看到了关闭 <strong>快捷指令<\/strong> 通知的设置。果断关闭吧！世界清净了。<\/p>\n<p>注：大概过三四天左右，苹果会固执地自动打开快捷指令的通知，要重新再做一次Step 5的操作。<\/p>\n<p>至此，我们终于实现了自动切换深色和浅色模式，可以愉快地玩耍了。<\/p>\n<p>对于任何我们不希望其强制随系统显示为深色的app，都可以在Step 2中将其加入黑名单。<\/p>\n<p><strong>Notion存档地址：<\/strong> <a href=\"https:\/\/www.notion.so\/iOS13-app-b9fb38fda5bc48d3a8128235f6199489\">https:\/\/www.notion.so\/iOS13-app-b9fb38fda5bc48d3a8128235f6199489<\/a><\/p>","artSummary":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-8400a163\">Step 1<\/a><\/li><\/ul><\/div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。<\/p>\n<p>对于微信深色模式到底做得有多糟\/好，不予评价。<\/p>\n<h3 id=\"chapter-8400a163\">Step 1<\/h3>\n<p>请先确保手机已安装 <strong>快捷指令<\/strong> 和 <strong>Scriptable<\/strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。<\/p>","artTags":["微信","iPhone","技术宅"],"aSet":[],"cTimeRaw":1586064900};
+            senBasicData.bodydata = {"fName":"disable-wechat-dark-mode","artTitle":"科学地禁用微信的iOS深色模式","cTime":"Apr 5 2020","aTime":"Apr 11 2020","artContent":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-5dc7c25b\">Step 1<\/a><\/li>\n<li><a href=\"#chapter-c862a520\">Step 2<\/a><\/li>\n<li><a href=\"#chapter-d4f57369\">Step 3<\/a><\/li>\n<li><a href=\"#chapter-ced62ae4\">Step 4<\/a><\/li>\n<li><a href=\"#chapter-0e751f50\">Step 5<\/a><\/li><\/ul><\/div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。<\/p>\n<p>对于微信深色模式到底做得有多糟\/好，不予评价。<\/p>\n<h3 id=\"chapter-5dc7c25b\">Step 1<\/h3>\n<p>请先确保手机已安装 <strong>快捷指令<\/strong> 和 <strong>Scriptable<\/strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。<a href=\"#\" id=\"more\" name=\"more\"><\/a><\/p>\n<h3 id=\"chapter-c862a520\">Step 2<\/h3>\n<p>1）打开 <strong>快捷指令<\/strong>，选择底部第二个Tab <strong>自动化<\/strong>。<\/p>\n<p>2）点击 <strong>新建个人自动化。<\/strong><\/p>\n<p>3）在 <strong>设置<\/strong> 分组列表中找到 <strong>打开App<\/strong>。<\/p>\n<p>4）在 <strong>App<\/strong> 这一栏上点击 <strong>选取<\/strong> ，并选取 <strong>微信<\/strong>。<\/p>\n<p>5）点击 <strong>下一步<\/strong>，点击 <strong>添加操作<\/strong>，在弹出的搜索框中输入 <strong>外观<\/strong>。在下方筛选出的操作中选择 <strong>设定外观<\/strong>。点击 <strong>将外观设为<em>深色<\/em><\/strong> ，改为 <strong><em>浅色<\/em><\/strong>。<\/p>\n<p>6）点击 <strong>下一步<\/strong>，关闭 <strong>运行前询问<\/strong>。点击 <strong>完成<\/strong>。<\/p>\n<p>本环节完成。至此，我们确保了微信打开后iOS自动将系统外观切换到浅色模式。<\/p>\n<h3 id=\"chapter-d4f57369\">Step 3<\/h3>\n<p>1）打开 <strong>Scriptable<\/strong>，点右上角 <strong>➕<\/strong> 新建一个空白脚本。内容如下：<\/p>\n<pre><code class=\"language-JavaScript\">var t=new Date()\n  if (t.getHours()&gt;=19 || t.getHours()&lt;6) {\n    return 1\n  }\nreturn null<\/code><\/pre>\n<p>这段JS的目的是判断当前时间是否位于19点之后次日6点之前。这是我偏向使用深色模式的时段，你可以根据个人习惯修改数字。<\/p>\n<p>2）在编辑界面点击左下角的第一个icon，将这个脚本重命名为 <em>isNight<\/em> 。保存。<\/p>\n<h3 id=\"chapter-ced62ae4\">Step 4<\/h3>\n<p>1）回到 <strong>快捷指令<\/strong> ，选择底部第二个Tab <strong>自动化<\/strong>。<\/p>\n<p>2）点击 <strong>加号<\/strong>，点击 <strong>新建个人自动化<\/strong>。<\/p>\n<p>3）在 <strong>设置<\/strong> 分组列表中找到 <strong>打开App<\/strong>。<\/p>\n<p>4）在 <strong>App<\/strong> 这一栏上点击 <strong>选取<\/strong> ，并通过打勾复选所有可被加入深色模式白名单的app。我选了26个之多。<\/p>\n<p>5）点击 <strong>下一步<\/strong>，点击 <strong>添加操作<\/strong>，在弹出的搜索框中输入 <strong>脚本<\/strong>。在下方筛选出的操作中选择 <strong>运行脚本<\/strong> （开头带Scriptable图标 ｛｝的那个）。<\/p>\n<p>6）在 <strong>Run Script with Parameter<\/strong> 这个操作条中，点击 <strong>Script<\/strong>。在弹出的脚本列表中选择刚才创建的脚本名 <strong>isNight<\/strong>。<\/p>\n<p>7）点击本页下方的➕ 添加新的操作。在弹出的搜索框中输入 <strong>变量<\/strong>。在下方筛选出的操作中选择 <strong>设定变量<\/strong>。<\/p>\n<p>8）点击 <strong>变量名称<\/strong>，输入任意字符。我们假设将变量命名为 <strong>isNightResult<\/strong>。这一个操作条最终显示为 <strong><em>将变量 isNightResult 设为 ｛｝Output<\/em><\/strong>。<\/p>\n<p>9）再次点击本页下方的➕ 添加新的操作。在弹出的搜索框中输入 <strong>如果<\/strong>。在下方筛选出的操作中选择 <strong>如果<\/strong>。<\/p>\n<p>10）点击 <strong>条件<\/strong>，选择 <strong>有任何值<\/strong>。<\/p>\n<p>11）按 <strong>否则<\/strong> 边上的 <strong>X，<\/strong>删除此分支<strong>。<\/strong><\/p>\n<p>12）再次点击本页下方的➕ 添加新的操作。在弹出的搜索框中输入 <strong>外观<\/strong>。在下方筛选出的操作中选择 <strong>设定外观<\/strong>。此时这条操作应该是 <strong><em>将外观设为深色<\/em><\/strong>。<\/p>\n<p>13）按住第12点设置好的操作，将其拖动到 <strong><em>如果isNightResult 有任何值<\/em><\/strong> 的下面。<\/p>\n<p>14）点击 <strong>下一步<\/strong>，关闭 <strong>运行前询问<\/strong>。点击 <strong>完成<\/strong>。最终设定结果应该如下：<\/p>\n<p><a href=\"https:\/\/imgchr.com\/i\/GBotf0\"><img src=\"https:\/\/s1.ax1x.com\/2020\/04\/05\/GBotf0.md.png\" alt=\"GBotf0.md.png\" \/><\/a><\/p>\n<p>第四步完成。这一步将让我们选择的白名单里的app在夜间运行时保持深色模式，在白天则不会修改系统当前的设置。<\/p>\n<h3 id=\"chapter-0e751f50\">Step 5<\/h3>\n<p>其实到第四步为止，自动切换的功能已经实现了。但是苹果这个自动化指令有个很蛋疼的地方，每次打开app都会弹一个通知告诉你：刚刚执行了自动化操作。注意是每一次，而且不能在设置 - 通知中关闭。<\/p>\n<p>为了解决这个蛋疼的设定，需要用到iOS一个良性的bug。<\/p>\n<p>1）首先，反复在微信和其他app之间切换十多次以上，每次都会有通知弹出。<\/p>\n<p>2）进入iOS的 <strong>设置<\/strong>。找到 <strong>屏幕使用时间<\/strong>。<\/p>\n<p>3）点击 <strong>查看所有活动<\/strong>。拉到底部，确保在 <strong>通知<\/strong> 这一个板块能看到<strong>快捷指令<\/strong>。如果看不到，重复<em>1）<\/em>的操作多次，直到快捷指令出现在这里。<\/p>\n<p>4）回到页面顶端，在 <strong>每周<\/strong> 和 <strong>每天<\/strong> 两个tab间反复切换若干次。然后拉到页面底部，查看 <strong>快捷指令<\/strong> 这一项是否出现了可以点击的 <strong>&gt; 右箭头<\/strong>。<\/p>\n<p><a href=\"https:\/\/imgchr.com\/i\/GBo8Ts\"><img src=\"https:\/\/s1.ax1x.com\/2020\/04\/05\/GBo8Ts.md.jpg\" alt=\"GBo8Ts.md.jpg\" \/><\/a><\/p>\n<p>5）点击这个箭头，终于看到了关闭 <strong>快捷指令<\/strong> 通知的设置。果断关闭吧！世界清净了。<\/p>\n<p>注：大概过三四天左右，苹果会固执地自动打开快捷指令的通知，要重新再做一次Step 5的操作。<\/p>\n<p>至此，我们终于实现了自动切换深色和浅色模式，可以愉快地玩耍了。<\/p>\n<p>对于任何我们不希望其强制随系统显示为深色的app，都可以在Step 2中将其加入黑名单。<\/p>\n<p><strong>Notion存档地址：<\/strong> <a href=\"https:\/\/www.notion.so\/iOS13-app-b9fb38fda5bc48d3a8128235f6199489\">https:\/\/www.notion.so\/iOS13-app-b9fb38fda5bc48d3a8128235f6199489<\/a><\/p>","artSummary":"<div id=\"article-toc\"><ul><li><a href=\"#chapter-678b5e28\">Step 1<\/a><\/li><\/ul><\/div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。<\/p>\n<p>对于微信深色模式到底做得有多糟\/好，不予评价。<\/p>\n<h3 id=\"chapter-678b5e28\">Step 1<\/h3>\n<p>请先确保手机已安装 <strong>快捷指令<\/strong> 和 <strong>Scriptable<\/strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。<\/p>","artTags":["微信","iPhone","技术宅"],"aSet":[],"cTimeRaw":1586064900};
             renderNow();
         }
     </script>
      
-    <script src="/resource/main.min.js?v=58c27dd34b5e2b4504851b8b42f1ff1c"></script>
+    <script src="/resource/main.min.js?v=6b024a54af6d6c4090cefff2a69f8d9c"></script>
 </body>
 </html>

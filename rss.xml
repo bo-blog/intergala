@@ -1,18 +1,18 @@
-<rss version="2.0"><channel><title>Bob's Corner</title><link>https://note.bobshen.com</link><description>Random thoughts and travel logs.</description><image><url>https://note.bobshen.com/icon.png</url><title>Bob's Corner</title><link>https://note.bobshen.com</link></image><item><title><![CDATA[科学地禁用微信的iOS深色模式]]></title><author>Bob</author><link>https://note.bobshen.com/post/disable-wechat-dark-mode.html</link><pubDate>Sun, 05 Apr 2020 13:35:00 +0800</pubDate><guid>https://note.bobshen.com/post/disable-wechat-dark-mode.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-2e682770">Step 1</a></li></ul></div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。</p>
+<rss version="2.0"><channel><title>Bob's Corner</title><link>https://note.bobshen.com</link><description>Random thoughts and travel logs.</description><image><url>https://note.bobshen.com/icon.png</url><title>Bob's Corner</title><link>https://note.bobshen.com</link></image><item><title><![CDATA[科学地禁用微信的iOS深色模式]]></title><author>Bob</author><link>https://note.bobshen.com/post/disable-wechat-dark-mode.html</link><pubDate>Sun, 05 Apr 2020 13:35:00 +0800</pubDate><guid>https://note.bobshen.com/post/disable-wechat-dark-mode.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-947d1e17">Step 1</a></li></ul></div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。</p>
 <p>对于微信深色模式到底做得有多糟/好，不予评价。</p>
-<h3 id="chapter-2e682770">Step 1</h3>
+<h3 id="chapter-947d1e17">Step 1</h3>
 <p>请先确保手机已安装 <strong>快捷指令</strong> 和 <strong>Scriptable</strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/disable-wechat-dark-mode.html#comment</comments></item><item><title><![CDATA[日影集 1]]></title><author>Bob</author><link>https://note.bobshen.com/post/japan-photo-collection-1.html</link><pubDate>Sat, 09 Nov 2019 16:32:00 +0800</pubDate><guid>https://note.bobshen.com/post/japan-photo-collection-1.html</guid><description><![CDATA[<p>A collection of memories in Japan.
 整理一下这几年在日本旅行时拍的一些照片。</p>
 <p>Album No. 1
 【第一編】</p>
 <p><img src="https://cdn.jsdelivr.net/gh/bo-blog/intergala/files/Angel%20Road%202018-11.jpeg" alt="" />
 Location: Angel Road, Shodoshima, Kagawa
-香川県小豆島エンジェルロード</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/japan-photo-collection-1.html#comment</comments></item><item><title><![CDATA[NUC8i5全新安装macOS 10.15 Catalina笔记]]></title><author>Bob</author><link>https://note.bobshen.com/post/nuc-catalina.html</link><pubDate>Sat, 12 Oct 2019 23:00:00 +0800</pubDate><guid>https://note.bobshen.com/post/nuc-catalina.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-b4fd6e8d">前言</a></li>
-<li><a href="#chapter-d2be41f2">硬件</a></li>
-<li><a href="#chapter-81ed67bc">准备USB安装盘</a></li></ul></div><h3 id="chapter-b4fd6e8d">前言</h3>
+香川県小豆島エンジェルロード</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/japan-photo-collection-1.html#comment</comments></item><item><title><![CDATA[NUC8i5全新安装macOS 10.15 Catalina笔记]]></title><author>Bob</author><link>https://note.bobshen.com/post/nuc-catalina.html</link><pubDate>Sat, 12 Oct 2019 23:00:00 +0800</pubDate><guid>https://note.bobshen.com/post/nuc-catalina.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-684bd661">前言</a></li>
+<li><a href="#chapter-483ff9a2">硬件</a></li>
+<li><a href="#chapter-fce501aa">准备USB安装盘</a></li></ul></div><h3 id="chapter-684bd661">前言</h3>
 <p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。</p>
 <p><img src="https://s2.ax1x.com/2019/11/06/Mics0K.md.jpg" alt="macOS Catalina" /></p>
-<h3 id="chapter-d2be41f2">硬件</h3>
+<h3 id="chapter-483ff9a2">硬件</h3>
 <p>NUC搭载七八代i3/i5/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。</p>
 <p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href="https://chengxuxiaohei.cn/mac-anzhuang">https://chengxuxiaohei.cn/mac-anzhuang</a> 。USB网卡的挑选稍后详述。</p>
 <p>笔者最后选购配件如下：</p>
@@ -22,7 +22,7 @@ Location: Angel Road, Shodoshima, Kagawa
 <li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）</li>
 </ul>
 <p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。</p>
-<h3 id="chapter-81ed67bc">准备USB安装盘</h3>
+<h3 id="chapter-fce501aa">准备USB安装盘</h3>
 <ol>
 <li>找一根可被格式化的16G的USB 3.0 U盘。</li>
 <li>去<strong>黑果小兵</strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href="https://blog.daliansky.net/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html">https://blog.daliansky.net/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html</a></li>
@@ -47,10 +47,10 @@ Location: Angel Road, Shodoshima, Kagawa
 <p>对于这份执着，我个人心存感激。这些年来，每每在生活的某些节点上，自由而无用这句话背后所代表的精神，促使我做出了更追随内心的召唤而非顺应更主流价值观的选择。有些选择虽痛苦，然而我依然感到庆幸。</p>
 <p>它也让我保留了一丝穿过迷雾追求真实的动力，虽然这几年来，因为对各大网络平台的环境感到失望，而成为了一个不怎么说话的看客，但我知道，自己仍在心底保有一丝微薄的坚持。</p>
 <p>人虽无用，岂可自废于心。</p>
-<h4>题图：2019年春摄于镰仓</h4>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/free-and-non-instrumental.html#comment</comments></item><item><title><![CDATA[为什么要挖新的坑？]]></title><author>Bob</author><link>https://note.bobshen.com/post/why-new.html</link><pubDate>Sat, 15 Jun 2019 14:55:00 +0800</pubDate><guid>https://note.bobshen.com/post/why-new.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-6afcd406">为什么现在仍然需要自建博客？</a></li></ul></div><p><img src="https://i.loli.net/2019/06/15/5d049822009a431917.png" alt="Jietu20190615-150227.png" /></p>
+<h4>题图：2019年春摄于镰仓</h4>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/free-and-non-instrumental.html#comment</comments></item><item><title><![CDATA[为什么要挖新的坑？]]></title><author>Bob</author><link>https://note.bobshen.com/post/why-new.html</link><pubDate>Sat, 15 Jun 2019 14:55:00 +0800</pubDate><guid>https://note.bobshen.com/post/why-new.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-4827a8bb">为什么现在仍然需要自建博客？</a></li></ul></div><p><img src="https://i.loli.net/2019/06/15/5d049822009a431917.png" alt="Jietu20190615-150227.png" /></p>
 <p>又开始了一个新的项目，来兑现一些这段时间以来的一些思考和设想。这个新的项目就定名为SenNote吧。</p>
 <p>在一切开始之前，我认为要厘清两个根本性的问题：都2019年了，为什么我们还需要一个自建博客？以及，为什么要再造一个轮子？</p>
-<h3 id="chapter-6afcd406">为什么现在仍然需要自建博客？</h3>
+<h3 id="chapter-4827a8bb">为什么现在仍然需要自建博客？</h3>
 <p>很简单，我们追求的是一个开放的、基于web的平台。而与之相对的，是各种专有的内容创作平台。</p>
 <p>前者是自由的，从前台到后端完全可以一手操控；后者是寡头控制的，重度依赖某个特定的生态环境。前者发布的内容是公开的，需要了解这些信息的人可以自由获取，而我们作为作者，不关心阅读量之类的KPI，也不指望靠这些文字来收费；后者发布的内容则是封闭的，只对生态圈内的读者甚至订阅者开放，作者有文字变现的机遇，但也需要投入非常大的精力和金钱代价来运营。</p>
 <p>所以，如果我把一些琐碎的设想放到以上的原则里来检验，就会立刻判断出哪些是可取的，哪些是要舍弃的。</p>
