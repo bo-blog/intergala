@@ -1,18 +1,51 @@
-<rss version="2.0"><channel><title>Bob's Corner</title><link>https://note.bobshen.com</link><description>Random thoughts and travel logs.</description><image><url>https://note.bobshen.com/icon.png</url><title>Bob's Corner</title><link>https://note.bobshen.com</link></image><item><title><![CDATA[科学地禁用微信的iOS深色模式]]></title><author>Bob</author><link>https://note.bobshen.com/post/disable-wechat-dark-mode.html</link><pubDate>Sun, 05 Apr 2020 13:35:00 +0800</pubDate><guid>https://note.bobshen.com/post/disable-wechat-dark-mode.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-947d1e17">Step 1</a></li></ul></div><p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。</p>
+<rss version="2.0"><channel><title>Bob's Corner</title><link>https://note.bobshen.com</link><description>Random thoughts and travel logs.</description><image><url>https://note.bobshen.com/icon.png</url><title>Bob's Corner</title><link>https://note.bobshen.com</link></image><item><title><![CDATA[Tenet信条 个人观影笔记]]></title><author>Bob</author><link>https://note.bobshen.com/post/tenet-notes.html</link><pubDate>Sat, 05 Sep 2020 22:00:00 +0800</pubDate><guid>https://note.bobshen.com/post/tenet-notes.html</guid><description><![CDATA[<blockquote>
+<blockquote>
+<blockquote>
+<p>这份笔记根据记忆整理，由于只看了一遍，部分地方可能有出入或者理解不到位。最重要的，记住女科学家的那句话：不要试着去理解它，学会感受它。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ol>
+<li>
+<p>全片立足概念：时间之门
+时间之门通过逆转熵来实现时间逆流。当在逆转状态中再次穿越时间之门时，便可回到正流状态的过去。也就是说，奇数次穿越为逆向，偶数次为正向。是否处于逆向状态（是否需要戴氧气面罩）只与穿越的奇偶性相关，与是否身处过去无关。
+当镜头的主体人物处于逆流状态时，配乐也是倒放的，所以仔细听很容易判断。
+全片不承认祖父悖论或者说回避这一悖论，对于穿越回过去的人来说，他们仍然在自己的“现实”时间线中，而不是重置到过去去改变世界。这点非常重要，不然无法理解过去无法改变论。</p>
+</li>
+<li>
+<p>未来人发动的战争
+当算法启用后，时间流会整体逆向，于是未来人可以从一个无法生存的环境中，逐渐倒退回人类尚可生存的过去，也就是他们会生活在一个越来越安全的环境里。
+未来人的战争方法，是在其过去（也就是影片里的当代）寻找一号反派作为其傀儡。片中有交代为何选择毛子作为反派，不重要。</p>
+</li>
+<li>
+<p>主人公与男二的关系
+主人公是一个对抗未来入侵的拯救者。男二也好，印度女人也好都是他在未来招募后回到过去的。正因如此，男二生命的终结也正是对于主人公来说的两人关系的起点。
+无证据证明男二是女主的儿子。这片子的情感线刻划太弱了，所以除了烧脑外，缺乏感动和共情。</p>
+</li>
+<li>
+<p>未来不可改变
+正由于上面形状的时间线，所以每次回到过去后，只能是在“修补”或者说“补完”即将成为现实的事件而无法改变现实。在a b team进行钳形作战时，b team的目标是为a team获取经验，而不是改变战局。
+换言之，回到过去做的事本身就是过去发生的事的一部分，站在正向时间线来看就是先果后因，有果必有因。
+倒数第二幕中，主角提出，这一不可改变性是一种宿命，但男二对此的理解却是“现实”。的确，未来对过去的“补完”是“现实”不可或缺的组成部分。
+可想而知，主人公在今后的岁月里，必须以补完历史为己任，包括在女主生命受到威胁时挺身而出解决麻烦。这样才是他活下去的“现实”，是为“果”付出“因”。</p>
+</li>
+</ol>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/tenet-notes.html#comment</comments></item><item><title><![CDATA[科学地禁用微信的iOS深色模式]]></title><author>Bob</author><link>https://note.bobshen.com/post/disable-wechat-dark-mode.html</link><pubDate>Sun, 05 Apr 2020 13:35:00 +0800</pubDate><guid>https://note.bobshen.com/post/disable-wechat-dark-mode.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-52fcd2c8">Step 1</a></li></ul></div><p><strong>好消息：微信已经在最新版中提供了深色模式不跟随系统设置的选项，本文不再必要。</strong></p>
+<p>本文提供一个方法，帮助无法适应微信深色模式的小伙伴在保持系统深色模式打开，不影响其他app的前提下关闭微信深色模式。</p>
 <p>对于微信深色模式到底做得有多糟/好，不予评价。</p>
-<h3 id="chapter-947d1e17">Step 1</h3>
+<h3 id="chapter-52fcd2c8">Step 1</h3>
 <p>请先确保手机已安装 <strong>快捷指令</strong> 和 <strong>Scriptable</strong> 这两个app，前者是苹果官方的捷径app，后者是一个免费的开发类app，可以允许我们在捷径中调用JavaScript。</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/disable-wechat-dark-mode.html#comment</comments></item><item><title><![CDATA[日影集 1]]></title><author>Bob</author><link>https://note.bobshen.com/post/japan-photo-collection-1.html</link><pubDate>Sat, 09 Nov 2019 16:32:00 +0800</pubDate><guid>https://note.bobshen.com/post/japan-photo-collection-1.html</guid><description><![CDATA[<p>A collection of memories in Japan.
 整理一下这几年在日本旅行时拍的一些照片。</p>
+<p><strong>2020年更新：愿疫情早日被战胜，期待下一次国际旅行。</strong></p>
 <p>Album No. 1
 【第一編】</p>
 <p><img src="https://cdn.jsdelivr.net/gh/bo-blog/intergala/files/Angel%20Road%202018-11.jpeg" alt="" />
 Location: Angel Road, Shodoshima, Kagawa
-香川県小豆島エンジェルロード</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/japan-photo-collection-1.html#comment</comments></item><item><title><![CDATA[NUC8i5全新安装macOS 10.15 Catalina笔记]]></title><author>Bob</author><link>https://note.bobshen.com/post/nuc-catalina.html</link><pubDate>Sat, 12 Oct 2019 23:00:00 +0800</pubDate><guid>https://note.bobshen.com/post/nuc-catalina.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-684bd661">前言</a></li>
-<li><a href="#chapter-483ff9a2">硬件</a></li>
-<li><a href="#chapter-fce501aa">准备USB安装盘</a></li></ul></div><h3 id="chapter-684bd661">前言</h3>
+香川県小豆島エンジェルロード</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/japan-photo-collection-1.html#comment</comments></item><item><title><![CDATA[NUC8i5全新安装macOS 10.15 Catalina笔记]]></title><author>Bob</author><link>https://note.bobshen.com/post/nuc-catalina.html</link><pubDate>Sat, 12 Oct 2019 23:00:00 +0800</pubDate><guid>https://note.bobshen.com/post/nuc-catalina.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-b3be9a43">前言</a></li>
+<li><a href="#chapter-3c48ed88">硬件</a></li>
+<li><a href="#chapter-a43da134">准备USB安装盘</a></li></ul></div><h3 id="chapter-b3be9a43">前言</h3>
 <p>本篇速记Intel Nuc 八代i5系列全新安装黑苹果Catalina的过程。本人安装于2019年10月12日，网上大多数教程都围绕安装Mojave，因此以下笔记也包括了一部分笔者自行搜索研究后的经验，但愿对后来者有所裨益吧。</p>
 <p><img src="https://s2.ax1x.com/2019/11/06/Mics0K.md.jpg" alt="macOS Catalina" /></p>
-<h3 id="chapter-483ff9a2">硬件</h3>
+<h3 id="chapter-3c48ed88">硬件</h3>
 <p>NUC搭载七八代i3/i5/i7的大部分型号被称作最适合安装黑苹果的miniPC，也就是说黑苹果三大拦路虎——CPU、显卡、主板都完美兼容，但自行选购的SSD硬盘和内存也要稍微注意，部分产品有兼容问题。另外，由于不想魔改白苹果的无线网卡，所以还需购买有Mac驱动的USB网卡。</p>
 <p>选购硬件以及开始安装前，建议先通篇阅读程序小黑的帖子：<a href="https://chengxuxiaohei.cn/mac-anzhuang">https://chengxuxiaohei.cn/mac-anzhuang</a> 。USB网卡的挑选稍后详述。</p>
 <p>笔者最后选购配件如下：</p>
@@ -22,7 +55,7 @@ Location: Angel Road, Shodoshima, Kagawa
 <li>￼￼COMFAST CF-812AC双频千兆无线网卡5.8G （Realtek芯片，有Mac驱动）</li>
 </ul>
 <p>装完后上电，开机按F2进bios，检查bios版本，如低于0056则需要升级，升级方法遵照上述程序小黑的帖子。如果大于0056，则按照帖子设置bios选项。</p>
-<h3 id="chapter-fce501aa">准备USB安装盘</h3>
+<h3 id="chapter-a43da134">准备USB安装盘</h3>
 <ol>
 <li>找一根可被格式化的16G的USB 3.0 U盘。</li>
 <li>去<strong>黑果小兵</strong>的blog下载他制作的Catalina镜像。这个的优势是双分区，一个分区自带了一个微型PE，留着可以应急用，而Catalina安装文件在另一个分区，是纯净的镜像。链接：<a href="https://blog.daliansky.net/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html">https://blog.daliansky.net/macOS-Catalina-10.15-19A583-Release-version-with-Clover-5093-original-image-Double-EFI-Version.html</a></li>
@@ -35,7 +68,8 @@ Location: Angel Road, Shodoshima, Kagawa
 <ol start="6">
 <li>EFI挂载出来后，双击桌面上的图标打开，找到clover文件夹，把里面除了cloverx64.efi之外的文件全部删除，并把第4步里下到的文件复制到这里。</li>
 <li>照此做完的U盘就可以用来安装Catalina了，接下来的过程将会一路顺利。</li>
-</ol>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/nuc-catalina.html#comment</comments></item><item><title><![CDATA[B＆O E8使用体验]]></title><author>Bob</author><link>https://note.bobshen.com/post/bo-e8.html</link><pubDate>Sat, 10 Aug 2019 13:48:00 +0800</pubDate><guid>https://note.bobshen.com/post/bo-e8.html</guid><description><![CDATA[<p>又到了败家爷们儿瞎评时间了。这次是Bang &amp; Olufsen的E8真无线入耳式耳机。</p>
+</ol>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/nuc-catalina.html#comment</comments></item><item><title><![CDATA[B＆O E8使用体验]]></title><author>Bob</author><link>https://note.bobshen.com/post/bo-e8.html</link><pubDate>Sat, 10 Aug 2019 13:48:00 +0800</pubDate><guid>https://note.bobshen.com/post/bo-e8.html</guid><description><![CDATA[<p><strong>购买建议：请勿购买</strong></p>
+<p>又到了败家爷们儿瞎评时间了。这次是Bang &amp; Olufsen的E8真无线入耳式耳机。</p>
 <p>购买这款耳机的初衷，是为了取代使用了大半年的AirPods 一代。我曾经说过，苹果的EarPods不适合我的耳朵造型，戴上去以后老是掉出来。AirPods作为无线版的EarPods，这个毛病依然存在，几个月下来我被迫养成了每走几步路就推一下左耳上的AirPods（AirPod？）的习惯。就这样将就着用了几个月，为什么最终下决心换掉它呢？因为天气越来越热了，一出汗，AirPods从耳道滑出来的几率爆发式增长，甚至发生了在公交车上飞了出去，只能被迫到终点站等车清空以后才找回来的乌龙事件！</p>
 <p>乌龙事件发生后没多久，我就将AirPods卖出，换了一部E8。以下是近三个月来的使用体验，而且重点是和AirPods对比。</p>
 <p><strong>佩戴稳定性：</strong> 由于稳定性是我用E8代替AirPods的最主要原因，因此这一点极为重要。E8是入耳式设计，所以稳定性没话说（终于在通勤路上解放了我的手）。随机配送了三个尺寸的耳塞，挑选了适合自己耳朵的耳塞后，舒适感和稳定性能够取得很好的平衡。</p>
@@ -47,10 +81,10 @@ Location: Angel Road, Shodoshima, Kagawa
 <p>对于这份执着，我个人心存感激。这些年来，每每在生活的某些节点上，自由而无用这句话背后所代表的精神，促使我做出了更追随内心的召唤而非顺应更主流价值观的选择。有些选择虽痛苦，然而我依然感到庆幸。</p>
 <p>它也让我保留了一丝穿过迷雾追求真实的动力，虽然这几年来，因为对各大网络平台的环境感到失望，而成为了一个不怎么说话的看客，但我知道，自己仍在心底保有一丝微薄的坚持。</p>
 <p>人虽无用，岂可自废于心。</p>
-<h4>题图：2019年春摄于镰仓</h4>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/free-and-non-instrumental.html#comment</comments></item><item><title><![CDATA[为什么要挖新的坑？]]></title><author>Bob</author><link>https://note.bobshen.com/post/why-new.html</link><pubDate>Sat, 15 Jun 2019 14:55:00 +0800</pubDate><guid>https://note.bobshen.com/post/why-new.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-4827a8bb">为什么现在仍然需要自建博客？</a></li></ul></div><p><img src="https://i.loli.net/2019/06/15/5d049822009a431917.png" alt="Jietu20190615-150227.png" /></p>
+<h4>题图：2019年春摄于镰仓</h4>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/free-and-non-instrumental.html#comment</comments></item><item><title><![CDATA[为什么要挖新的坑？]]></title><author>Bob</author><link>https://note.bobshen.com/post/why-new.html</link><pubDate>Sat, 15 Jun 2019 14:55:00 +0800</pubDate><guid>https://note.bobshen.com/post/why-new.html</guid><description><![CDATA[<div id="article-toc"><ul><li><a href="#chapter-35e5bfc1">为什么现在仍然需要自建博客？</a></li></ul></div><p><img src="https://i.loli.net/2019/06/15/5d049822009a431917.png" alt="Jietu20190615-150227.png" /></p>
 <p>又开始了一个新的项目，来兑现一些这段时间以来的一些思考和设想。这个新的项目就定名为SenNote吧。</p>
 <p>在一切开始之前，我认为要厘清两个根本性的问题：都2019年了，为什么我们还需要一个自建博客？以及，为什么要再造一个轮子？</p>
-<h3 id="chapter-4827a8bb">为什么现在仍然需要自建博客？</h3>
+<h3 id="chapter-35e5bfc1">为什么现在仍然需要自建博客？</h3>
 <p>很简单，我们追求的是一个开放的、基于web的平台。而与之相对的，是各种专有的内容创作平台。</p>
 <p>前者是自由的，从前台到后端完全可以一手操控；后者是寡头控制的，重度依赖某个特定的生态环境。前者发布的内容是公开的，需要了解这些信息的人可以自由获取，而我们作为作者，不关心阅读量之类的KPI，也不指望靠这些文字来收费；后者发布的内容则是封闭的，只对生态圈内的读者甚至订阅者开放，作者有文字变现的机遇，但也需要投入非常大的精力和金钱代价来运营。</p>
 <p>所以，如果我把一些琐碎的设想放到以上的原则里来检验，就会立刻判断出哪些是可取的，哪些是要舍弃的。</p>
@@ -66,11 +100,4 @@ Location: Angel Road, Shodoshima, Kagawa
 <p>先来段点题文字。如果只允许提名一项旅途中最令人印象深刻的东西，那么对于澳洲必然是那里的蓝天。回家翻相册，我最怀念的依然是那无需滤镜的蓝，想要打包带走的蓝。</p>
 <p><img src="https://i.loli.net/2018/11/10/5be5ce9da55a8.jpg" alt="IMG_3763.jpg" />
 <em>奇迹的歌剧院与澳大利亚蓝</em></p>
-<p>下面，正式开始我的游记。</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/chu-jian-ao-zhou-lan-1.html#comment</comments></item><item><title><![CDATA[去，你的东瀛]]></title><author>Bob</author><link>https://note.bobshen.com/post/qu-ni-de-dong-ying.html</link><pubDate>Fri, 05 Oct 2018 15:32:24 +0800</pubDate><guid>https://note.bobshen.com/post/qu-ni-de-dong-ying.html</guid><description><![CDATA[<p><img src="https://i.loli.net/2018/11/05/5bdfd46b32b3b.jpg" alt="今治市来岛大桥拍摄的濑户内海" />
-<em>今治市来岛大桥拍摄的濑户内海</em></p>
-<p>写这篇文章的初衷，还是读到朋友圈的一篇红文。回想我自己，从第一次东京之行后就一发不可收拾，成为了日本游的常客，但好像从来没有正儿八经地写篇游记。那么，不如借这个机会，从我个人的角度说说，日本作为一个目的地，为何会让人流连忘返。</p>
-<p><img src="https://i.loli.net/2018/11/05/5bdfd4fa88097.jpg" alt="奈良春日大社" />
-<em>奈良春日大社</em></p>
-<h1>Part 1 山和海的彼端</h1>
-<p>旅行者最乐见的风景，莫过于山水。日本四面环海，内陆多山，同时满足了大多数人对于山林与海风的幻想。</p>
-<p>如果能找到一个行山和看海得兼的海滨城市，<strong>登上一个制高点，远眺海天一色，将整个城市尽收眼底，更不啻为一桩幸事。</strong>这样的城市，在日本的地图上不难找。</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/qu-ni-de-dong-ying.html#comment</comments></item></channel></rss>
+<p>下面，正式开始我的游记。</p>]]></description><category>Bob's Corner</category><comments>https://note.bobshen.com/post/chu-jian-ao-zhou-lan-1.html#comment</comments></item></channel></rss>
